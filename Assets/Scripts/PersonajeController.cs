@@ -19,9 +19,11 @@ public class PersonajeController : MonoBehaviour
   private Vector3 fuerzaDireccion = Vector3.zero;
   [SerializeField]
   private Camera personajeCamara;
+  private Animator animador;
   private void Awake() {
     rb = this.GetComponent<Rigidbody>();
     accionPersonaje = new ActionAssets();
+    animador = this.GetComponent<Animator>();
   }
 
   private void OnEnable() {

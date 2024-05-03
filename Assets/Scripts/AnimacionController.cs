@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class AnimacionController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  Animator animador;
+  Rigidbody rb;
+  float velocidadMaxima = 5f;
+   private void Start() {
+    animador = this.GetComponent<Animator>();
+    rb = this.GetComponent<Rigidbody>();
+   }
+   private void Update() {
+    float magnitudVelocidad = rb.velocity.magnitude;
+    Debug.Log("Magnitud de la velocidad: " + magnitudVelocidad);
+    animador.SetFloat("Velocidad", magnitudVelocidad / velocidadMaxima);
+   }
 }
