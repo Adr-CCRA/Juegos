@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.IMGUI.Controls;
@@ -27,10 +28,13 @@ public class PersonajeController : MonoBehaviour
   }
 
   private void OnEnable() {
+    accionPersonaje.Personaje.Agarrar.started += agarrarObjeto;
     Mover = accionPersonaje.Personaje.Mover;
     accionPersonaje.Personaje.Enable();
   }
+
   private void OnDisable() {
+    accionPersonaje.Personaje.Agarrar.started -= agarrarObjeto;
     accionPersonaje.Personaje.Disable();
   }
   private void FixedUpdate() {
@@ -80,6 +84,11 @@ public class PersonajeController : MonoBehaviour
     derecha.y = 0;
     return derecha.normalized;
   } 
+  
+    private void agarrarObjeto(InputAction.CallbackContext context)
+    {
+        animador.SetTrigger("Agarrar");
+    }
   private bool esSuelo() {
     Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
     if (Physics.Raycast(ray, out RaycastHit hit, 0.3f)){
