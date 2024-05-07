@@ -9,7 +9,8 @@ public class PersonajeController : MonoBehaviour
 {
   private ActionAssets accionPersonaje;
   private InputAction Mover;
-
+  CamaraController camaraController;
+  EntradaController entradaController;
   private Rigidbody rb;
   [SerializeField]
   private float fuerzaMovimiento = 1f;
@@ -25,6 +26,7 @@ public class PersonajeController : MonoBehaviour
     rb = this.GetComponent<Rigidbody>();
     accionPersonaje = new ActionAssets();
     animador = this.GetComponent<Animator>();
+    camaraController = FindObjectOfType<CamaraController>();
   }
 
   private void OnEnable() {
@@ -64,6 +66,9 @@ public class PersonajeController : MonoBehaviour
     }
     mirar();
   }
+  private void LateUpdate() {
+    camaraController.TodoMovimientoCamara();
+  }
   private void mirar(){
     Vector3 direccion = rb.velocity;
     Vector3 movimientoInput = Mover.ReadValue<Vector2>();
@@ -85,7 +90,7 @@ public class PersonajeController : MonoBehaviour
     return derecha.normalized;
   } 
   
-    private void agarrarObjeto(InputAction.CallbackContext context)
+  private void agarrarObjeto(InputAction.CallbackContext context)
     {
         animador.SetTrigger("Agarrar");
     }

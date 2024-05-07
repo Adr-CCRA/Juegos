@@ -73,10 +73,10 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
+                    ""name"": ""Camara"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""a5aa326c-8b81-4419-bc9e-bcd5fd51649f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -262,13 +262,68 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d44a19df-8bc4-4060-9ad2-83e5e509c598"",
-                    ""path"": """",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Camara"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Right Stick"",
+                    ""id"": ""678a4f95-13be-4dcc-b78c-136cc9174d20"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camara"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""fe897065-c60b-4d66-b207-1f2fbbffef11"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camara"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8f26910d-8395-4ecd-999a-0e248cd614d2"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camara"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5d1a68a2-8dfb-43b1-bac8-732e3a70cb11"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camara"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e4a16e2c-0f45-4782-b383-de0af0c3cfc2"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camara"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -282,7 +337,7 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
         m_Personaje_Agarrar = m_Personaje.FindAction("Agarrar", throwIfNotFound: true);
         m_Personaje_Agacharce = m_Personaje.FindAction("Agacharce", throwIfNotFound: true);
         m_Personaje_Mirar = m_Personaje.FindAction("Mirar", throwIfNotFound: true);
-        m_Personaje_Newaction = m_Personaje.FindAction("New action", throwIfNotFound: true);
+        m_Personaje_Camara = m_Personaje.FindAction("Camara", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -347,7 +402,7 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
     private readonly InputAction m_Personaje_Agarrar;
     private readonly InputAction m_Personaje_Agacharce;
     private readonly InputAction m_Personaje_Mirar;
-    private readonly InputAction m_Personaje_Newaction;
+    private readonly InputAction m_Personaje_Camara;
     public struct PersonajeActions
     {
         private @ActionAssets m_Wrapper;
@@ -357,7 +412,7 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
         public InputAction @Agarrar => m_Wrapper.m_Personaje_Agarrar;
         public InputAction @Agacharce => m_Wrapper.m_Personaje_Agacharce;
         public InputAction @Mirar => m_Wrapper.m_Personaje_Mirar;
-        public InputAction @Newaction => m_Wrapper.m_Personaje_Newaction;
+        public InputAction @Camara => m_Wrapper.m_Personaje_Camara;
         public InputActionMap Get() { return m_Wrapper.m_Personaje; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -382,9 +437,9 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                 @Mirar.started -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnMirar;
                 @Mirar.performed -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnMirar;
                 @Mirar.canceled -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnMirar;
-                @Newaction.started -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnNewaction;
+                @Camara.started -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnCamara;
+                @Camara.performed -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnCamara;
+                @Camara.canceled -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnCamara;
             }
             m_Wrapper.m_PersonajeActionsCallbackInterface = instance;
             if (instance != null)
@@ -404,9 +459,9 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                 @Mirar.started += instance.OnMirar;
                 @Mirar.performed += instance.OnMirar;
                 @Mirar.canceled += instance.OnMirar;
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @Camara.started += instance.OnCamara;
+                @Camara.performed += instance.OnCamara;
+                @Camara.canceled += instance.OnCamara;
             }
         }
     }
@@ -418,6 +473,6 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
         void OnAgarrar(InputAction.CallbackContext context);
         void OnAgacharce(InputAction.CallbackContext context);
         void OnMirar(InputAction.CallbackContext context);
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnCamara(InputAction.CallbackContext context);
     }
 }
