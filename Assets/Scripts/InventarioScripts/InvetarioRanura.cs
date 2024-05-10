@@ -23,6 +23,13 @@ public class InvetarioRanura
     datosElemento = null;
     capacidadPila = -1;
   }
+
+  public void ActualizarInventarioRanura(DatosInventario datos, int cantidad){
+    datosElemento = datos;
+    capacidadPila = cantidad;
+    Debug.Log("elementos: " + datosElemento);
+    Debug.Log("capacidad: " + capacidadPila);
+  }
   public bool EspacioRestantePila(int agregarCantidad, out int cantidadRestante){
     cantidadRestante = DatosElemento.maxCapacidadPila - capacidadPila;
     return EspacioRestantePila(agregarCantidad);

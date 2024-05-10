@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using System.Data.Common;
 
 [System.Serializable]
 public class SistemaInventario
@@ -21,7 +22,30 @@ public class SistemaInventario
    }
 
    public bool AgregarInvetario(DatosInventario agregarElemento, int agregarCantidad){
-    invetarioRanuras[0] = new InvetarioRanura(agregarElemento, agregarCantidad);
-    return true;
+    if(ContenedorElemento(agregarElemento, out List<InvetarioRanura> invRanura)){ //verifica si existe elementos en el inventario
+      foreach(var ranura in invRanura){
+        if(ranura.EspacioRestantePila(agregarCantidad)){
+          ranura.AgregarPila(agregarCantidad);
+          CambioEnInventarioRanura?.Invoke(ranura);
+        }
+      }
+      return true;
+    } 
+    if(EspacioLibreRanura(out InvetarioRanura libreRanura)){ // obtiene el primer espacio libre
+      libreRanura.ActualizarInventarioRanura(agregarElemento, agregarCantidad);
+      return true;
+    }
+    return false; 
+   }
+
+   public bool ContenedorElemento(DatosInventario agregarElemento, out List<InvetarioRanura> invRanura){
+    invRanura = InvetarioRanuras.Where(i => i.DatosElemento == agregarElemento).ToList();
+    Debug.Log("invRanura:  " + invRanura.Count);
+    return invRanura.Any();
+   }
+
+   public bool EspacioLibreRanura(out InvetarioRanura libreRanura){
+    libreRanura = InvetarioRanuras.Where(i => i.DatosElemento == null).FirstOrDefault();
+    return libreRanura != null;
    }
 }

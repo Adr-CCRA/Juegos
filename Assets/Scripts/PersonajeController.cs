@@ -50,7 +50,7 @@ public class PersonajeController : MonoBehaviour
     Vector3 fuerzaMovimientoY = movimientoInput.y * obtenerCamaraAdelante(personajeCamara) * fuerzaMovimiento;
     fuerzaDireccion += fuerzaMovimientoY;
     
-    Debug.Log(fuerzaDireccion);
+    // Debug.Log(fuerzaDireccion);
     rb.AddForce(fuerzaDireccion, ForceMode.Impulse);
     
     // Reinicia la dirección total de la fuerza

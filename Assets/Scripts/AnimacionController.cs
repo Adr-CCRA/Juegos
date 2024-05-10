@@ -13,7 +13,7 @@ public class AnimacionController : MonoBehaviour
    }
    private void Update() {
     float magnitudVelocidad = rb.velocity.magnitude;
-    Debug.Log("Magnitud de la velocidad: " + magnitudVelocidad);
+    // Debug.Log("Magnitud de la velocidad: " + magnitudVelocidad);
     animador.SetFloat("Velocidad", magnitudVelocidad / velocidadMaxima);
    }
 }
