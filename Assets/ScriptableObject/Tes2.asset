@@ -16,4 +16,4 @@ MonoBehaviour:
   mostrarNombre: Eleneba
   Descripcion: sdasds
   icono: {fileID: 0}
-  maxCapacidadPila: 0
+  maxCapacidadPila: 5
