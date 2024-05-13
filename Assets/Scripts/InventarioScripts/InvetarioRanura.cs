@@ -23,7 +23,15 @@ public class InvetarioRanura
     datosElemento = null;
     capacidadPila = -1;
   }
-
+  public void AsignarElemento(InvetarioRanura invRanura){
+    if(datosElemento == invRanura.datosElemento){
+      AgregarPila(invRanura.capacidadPila);
+    } else {
+      datosElemento = invRanura.datosElemento;
+      capacidadPila = 0;
+      AgregarPila(invRanura.capacidadPila);
+    }
+  }
   public void ActualizarInventarioRanura(DatosInventario datos, int cantidad){
     datosElemento = datos;
     capacidadPila = cantidad;
