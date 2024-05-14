@@ -54,4 +54,15 @@ public class InvetarioRanura
     capacidadPila -= cantidad;
   }
 
+  public bool PilaDividida(out InvetarioRanura pilaDividida){
+    if(capacidadPila <= 1){
+      pilaDividida = null;
+      return false;
+    }
+    int mediaPila = Mathf.RoundToInt(capacidadPila / 2);
+    EliminarDePila(mediaPila);
+
+    pilaDividida = new InvetarioRanura(datosElemento, mediaPila);
+    return true;
+  }
 }
