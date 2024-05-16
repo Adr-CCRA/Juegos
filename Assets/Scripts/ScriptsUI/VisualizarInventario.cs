@@ -57,13 +57,14 @@ public abstract class VisualizarInventario : MonoBehaviour
           return;
         } else if(esMismoElemento &&
           !clickedRanuraUI.AsignacionInventarioRanura.EspacioRestantePila(elementoInventarioMouse.AsignarInvetarioRanura.CapacidadPila, out int dejarEnPila)){
-            if(dejarEnPila < 1) {IntercambioRanuras(clickedRanuraUI);} // la pila esta llena esto intercambia los elementos
+            if(dejarEnPila < 0) {IntercambioRanuras(clickedRanuraUI);} // la pila esta llena esto intercambia los elementos
             else {
             int permaneceEnMouse = elementoInventarioMouse.AsignarInvetarioRanura.CapacidadPila - dejarEnPila;
+            int id = elementoInventarioMouse.AsignarInvetarioRanura.ID;
             clickedRanuraUI.AsignacionInventarioRanura.AgregarPila(dejarEnPila);
             clickedRanuraUI.ActualizarUIRanura();
 
-            var nuevoElemento = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, permaneceEnMouse);
+            var nuevoElemento = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, permaneceEnMouse, id);
             elementoInventarioMouse.LimpiarRanura();
             elementoInventarioMouse.ActualizarRaunuraMouse(nuevoElemento);
             return;
@@ -79,13 +80,15 @@ public abstract class VisualizarInventario : MonoBehaviour
     
   }
   private void IntercambioRanuras(RaunuraInventarioUI clickedRanuraUI){
-    var clonarRanura = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, elementoInventarioMouse.AsignarInvetarioRanura.CapacidadPila);
+    
+    var clonarRanura = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, elementoInventarioMouse.AsignarInvetarioRanura.CapacidadPila, elementoInventarioMouse.AsignarInvetarioRanura.ID);
     elementoInventarioMouse.LimpiarRanura();
 
     elementoInventarioMouse.ActualizarRaunuraMouse(clickedRanuraUI.AsignacionInventarioRanura);
     clickedRanuraUI.LimpiarRanura();
     clickedRanuraUI.AsignacionInventarioRanura.AsignarElemento(clonarRanura);
     clickedRanuraUI.ActualizarUIRanura();
+    Debug.Log("clonarRanura: " + clonarRanura);
   }
 
 }

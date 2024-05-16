@@ -29,7 +29,7 @@ public class RaunuraInventarioUI : MonoBehaviour
       elementoSprite.sprite = ranura.DatosElemento.icono;
       elementoSprite.color = Color.white;
 
-      if(ranura.CapacidadPila > 1) elementoContador.text = ranura.CapacidadPila.ToString();
+      if(ranura.CapacidadPila >= 1) elementoContador.text = ranura.CapacidadPila.ToString();
       else elementoContador.text = "";
     } else{
       LimpiarRanura();

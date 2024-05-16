@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
 public class InvetarioRanura
 {
+  [SerializeField] private int id;
   [SerializeField] private DatosInventario datosElemento;
   [SerializeField] private int capacidadPila;
 
+  public int ID => id;
   public DatosInventario DatosElemento => datosElemento;
   public int CapacidadPila => capacidadPila;
+  private CajaClasificacion cajaClasificacion;
 
-  public InvetarioRanura(DatosInventario fuente, int cantidad){
+  public InvetarioRanura(DatosInventario fuente, int cantidad, int Id){
+    this.id = Id;
     datosElemento = fuente;
     capacidadPila = cantidad;
   }
@@ -20,6 +26,7 @@ public class InvetarioRanura
     LimpiarRanura();
   }
   public void LimpiarRanura(){
+    id = -1;
     datosElemento = null;
     capacidadPila = -1;
   }
@@ -27,14 +34,17 @@ public class InvetarioRanura
     if(datosElemento == invRanura.datosElemento){
       AgregarPila(invRanura.capacidadPila);
     } else {
+      id = invRanura.id;
       datosElemento = invRanura.datosElemento;
       capacidadPila = 0;
       AgregarPila(invRanura.capacidadPila);
     }
   }
   public void ActualizarInventarioRanura(DatosInventario datos, int cantidad){
+    id = datos.ID;
     datosElemento = datos;
     capacidadPila = cantidad;
+    Debug.Log("ID" + id);
     Debug.Log("elementos: " + datosElemento);
     Debug.Log("capacidad: " + capacidadPila);
   }
@@ -62,7 +72,7 @@ public class InvetarioRanura
     int mediaPila = Mathf.RoundToInt(capacidadPila / 2);
     EliminarDePila(mediaPila);
 
-    pilaDividida = new InvetarioRanura(datosElemento, mediaPila);
+    pilaDividida = new InvetarioRanura(datosElemento, mediaPila, id);
     return true;
   }
 }

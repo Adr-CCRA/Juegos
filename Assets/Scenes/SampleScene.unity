@@ -4278,7 +4278,8 @@ GameObject:
   - component: {fileID: 1232707828}
   - component: {fileID: 1232707827}
   - component: {fileID: 1232707826}
-  m_Layer: 0
+  - component: {fileID: 1232707829}
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4363,6 +4364,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232707824}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1232707829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232707824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436e0963d1475c4409cceefb6b2f2c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacidadInventario: 20
+  sistemaInventario:
+    invetarioRanuras: []
+  ID: 0
 --- !u!224 &1260938278 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
@@ -6438,6 +6455,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 589962d2f50f9d94ca2486d4c91e8e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PuntoInteraccion: {fileID: 1645548991}
+  CapaInteraccion:
+    serializedVersion: 2
+    m_Bits: 128
+  PuntoRadioInteraccion: 1
+--- !u!114 &1911163185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911163171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbf193f40cb2d943b28173bee481156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PuntoInteraccion: {fileID: 1645548991}

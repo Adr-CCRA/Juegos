@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Sistema Inventario")]
+[CreateAssetMenu(menuName = "Nombre/Tipo : Basura")]
 public class DatosInventario : ScriptableObject
 {
   public int ID;
