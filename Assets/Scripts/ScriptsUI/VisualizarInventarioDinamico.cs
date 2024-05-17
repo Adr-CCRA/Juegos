@@ -12,12 +12,12 @@ public class VisualizarInventarioDinamico : VisualizarInventario
   public void ActualizarInventarioDinamico(SistemaInventario invVisualizar){
     LimpiarRanuras();
     sistemaInventario = invVisualizar;
+    if(sistemaInventario != null) sistemaInventario.CambioEnInventarioRanura += ActualizarRanuras;
     AsignarRanura(invVisualizar);
   }
 
   public override void AsignarRanura(SistemaInventario invVisualizar)
   {
-      LimpiarRanuras();
 
       ranuraDiccionario = new Dictionary<RaunuraInventarioUI, InvetarioRanura>();
 
@@ -38,7 +38,12 @@ public class VisualizarInventarioDinamico : VisualizarInventario
       Destroy(elemento.gameObject);
     }
 
-    if (ranuraDiccionario != null) ranuraDiccionario.Clear();
-    
+    if (ranuraDiccionario != null){
+      ranuraDiccionario.Clear();
+    }
+  }
+
+  private void OnDisable() {
+    if(sistemaInventario != null) sistemaInventario.CambioEnInventarioRanura -= ActualizarRanuras;
   }
 }

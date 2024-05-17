@@ -15,9 +15,9 @@ public class RecogeElementos : MonoBehaviour
     sphereCollider.radius = obtenerRadio;
    }
    private void OnTriggerEnter(Collider other) {
-    var inventario = other.transform.GetComponent<TitularInventario>();
+    var inventario = other.transform.GetComponent<PersonajeTitularInventario>();
     if(!inventario) return;
-    if(inventario.SistemaInventario.AgregarInvetario(datosElemento, 1)){
+    if(inventario.AgregarInventario(datosElemento, 1)){
       Destroy(this.gameObject);
     }
    }

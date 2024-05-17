@@ -13,7 +13,7 @@ public class TitularInventario : MonoBehaviour
 
   public static UnityAction<SistemaInventario> visualizarInventarioDinamicoSolicitado;
 
-  private void Awake() {
+  protected virtual void Awake() {
     sistemaInventario = new SistemaInventario(capacidadInventario);
   }
 }
