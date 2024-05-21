@@ -7,6 +7,7 @@ using UnityEngine;
 public class DatosInventario : ScriptableObject
 {
   public int ID;
+  public int IDTipo;
   public string mostrarNombre;
   [TextArea(4, 4)]
   public string Descripcion;

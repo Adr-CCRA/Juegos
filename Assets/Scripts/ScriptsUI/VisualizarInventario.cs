@@ -60,11 +60,11 @@ public abstract class VisualizarInventario : MonoBehaviour
             if(dejarEnPila < 0) {IntercambioRanuras(clickedRanuraUI);} // la pila esta llena esto intercambia los elementos
             else {
             int permaneceEnMouse = elementoInventarioMouse.AsignarInvetarioRanura.CapacidadPila - dejarEnPila;
-            int id = elementoInventarioMouse.AsignarInvetarioRanura.ID;
+            int idTipo = elementoInventarioMouse.AsignarInvetarioRanura.IDTipo;
             clickedRanuraUI.AsignacionInventarioRanura.AgregarPila(dejarEnPila);
             clickedRanuraUI.ActualizarUIRanura();
 
-            var nuevoElemento = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, permaneceEnMouse, id);
+            var nuevoElemento = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, permaneceEnMouse, idTipo);
             elementoInventarioMouse.LimpiarRanura();
             elementoInventarioMouse.ActualizarRaunuraMouse(nuevoElemento);
             return;
@@ -81,7 +81,7 @@ public abstract class VisualizarInventario : MonoBehaviour
   }
   private void IntercambioRanuras(RaunuraInventarioUI clickedRanuraUI){
     
-    var clonarRanura = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, elementoInventarioMouse.AsignarInvetarioRanura.CapacidadPila, elementoInventarioMouse.AsignarInvetarioRanura.ID);
+    var clonarRanura = new InvetarioRanura(elementoInventarioMouse.AsignarInvetarioRanura.DatosElemento, elementoInventarioMouse.AsignarInvetarioRanura.CapacidadPila, elementoInventarioMouse.AsignarInvetarioRanura.IDTipo);
     elementoInventarioMouse.LimpiarRanura();
 
     elementoInventarioMouse.ActualizarRaunuraMouse(clickedRanuraUI.AsignacionInventarioRanura);
