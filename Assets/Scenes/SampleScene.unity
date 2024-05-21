@@ -2195,6 +2195,7 @@ GameObject:
   - component: {fileID: 495625062}
   - component: {fileID: 495625061}
   - component: {fileID: 495625064}
+  - component: {fileID: 495625065}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -2294,6 +2295,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &495625065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495625059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 1b87afd6-59e1-4a56-9dc3-2e768894579b
+  _tipo: 
 --- !u!1 &507101513
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,6 +2484,7 @@ GameObject:
   - component: {fileID: 521272993}
   - component: {fileID: 521272992}
   - component: {fileID: 521272991}
+  - component: {fileID: 521272995}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -2501,6 +2521,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &521272992
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2564,6 +2588,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521272989}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &521272995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521272989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 931e656b-c7a9-4916-8cd1-54b2badc44e5
+  _tipo: 
 --- !u!1001 &560743474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2926,6 +2964,7 @@ GameObject:
   - component: {fileID: 578041878}
   - component: {fileID: 578041877}
   - component: {fileID: 578041876}
+  - component: {fileID: 578041880}
   m_Layer: 0
   m_Name: Sphere (6)
   m_TagString: Untagged
@@ -2962,6 +3001,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &578041877
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3025,6 +3068,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578041874}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &578041880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578041874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: ea851290-1334-4a98-935e-73620c8f222b
+  _tipo: 
 --- !u!1 &605238484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,6 +3164,7 @@ GameObject:
   - component: {fileID: 623814315}
   - component: {fileID: 623814314}
   - component: {fileID: 623814313}
+  - component: {fileID: 623814318}
   m_Layer: 0
   m_Name: Capsule (2)
   m_TagString: Untagged
@@ -3143,6 +3201,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 004ceefdd9e19ea45bcaba4320534bc5, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &623814314
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3220,6 +3282,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623814311}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &623814318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623814311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 193d03e0-7281-456a-b4ae-0117468700ad
+  _tipo: 
 --- !u!1001 &643518773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3530,6 +3606,7 @@ GameObject:
   - component: {fileID: 665070821}
   - component: {fileID: 665070820}
   - component: {fileID: 665070819}
+  - component: {fileID: 665070824}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -3566,6 +3643,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 004ceefdd9e19ea45bcaba4320534bc5, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &665070820
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3643,6 +3724,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665070817}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &665070824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665070817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: cffc5b87-dfd7-4481-b9a8-a62aea8cf63a
+  _tipo: 
 --- !u!1 &673675916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,6 +3783,7 @@ GameObject:
   - component: {fileID: 680471239}
   - component: {fileID: 680471238}
   - component: {fileID: 680471237}
+  - component: {fileID: 680471241}
   m_Layer: 0
   m_Name: Sphere (5)
   m_TagString: Untagged
@@ -3724,6 +3820,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &680471238
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3787,6 +3887,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680471235}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &680471241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680471235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 9317d1a5-3579-4472-8936-c677c8f9ab85
+  _tipo: 
 --- !u!1 &682757926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,6 +5554,7 @@ GameObject:
   - component: {fileID: 891477835}
   - component: {fileID: 891477839}
   - component: {fileID: 891477838}
+  - component: {fileID: 891477840}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -5540,6 +5655,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 004ceefdd9e19ea45bcaba4320534bc5, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &891477839
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5553,6 +5672,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &891477840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891477833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 277c0412-2eaf-4b12-b41a-ef9c647877dd
+  _tipo: 
 --- !u!1001 &896346749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6544,7 +6677,6 @@ GameObject:
   - component: {fileID: 1232707828}
   - component: {fileID: 1232707827}
   - component: {fileID: 1232707826}
-  - component: {fileID: 1232707829}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -6630,22 +6762,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232707824}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1232707829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232707824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436e0963d1475c4409cceefb6b2f2c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  capacidadInventario: 20
-  sistemaInventario:
-    invetarioRanuras: []
-  ID: 0
 --- !u!224 &1260938278 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
@@ -6777,6 +6893,7 @@ GameObject:
   - component: {fileID: 1318655634}
   - component: {fileID: 1318655633}
   - component: {fileID: 1318655632}
+  - component: {fileID: 1318655636}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -6813,6 +6930,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1318655633
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6876,6 +6997,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318655630}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1318655636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318655630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: f4af6459-f97a-43d3-80e0-5a9c4290d9d0
+  _tipo: 
 --- !u!1 &1345883183
 GameObject:
   m_ObjectHideFlags: 0
@@ -7958,6 +8093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c512dc4f76ee04aa932f1c05db77e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  compensar: 10
   capacidadInventario: 10
   sistemaInventario:
     invetarioRanuras: []
@@ -9256,6 +9392,7 @@ GameObject:
   - component: {fileID: 1905373256}
   - component: {fileID: 1905373255}
   - component: {fileID: 1905373254}
+  - component: {fileID: 1905373258}
   m_Layer: 0
   m_Name: Sphere (4)
   m_TagString: Untagged
@@ -9292,6 +9429,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1905373255
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9355,6 +9496,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905373252}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1905373258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905373252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: e0ee1bbb-37be-4638-9357-3f0d920bd5e9
+  _tipo: 
 --- !u!1 &1911163171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 658dd45812c65f242a9a6e0cac488b94, type: 3}
@@ -9440,23 +9595,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   PuntoRadioInteraccion: 1
---- !u!114 &1911163185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911163171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dbf193f40cb2d943b28173bee481156, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PuntoInteraccion: {fileID: 1645548991}
-  CapaInteraccion:
-    serializedVersion: 2
-    m_Bits: 128
-  PuntoRadioInteraccion: 1
 --- !u!114 &1911163187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9469,11 +9607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3302e85ac6c98ab4d8e2cdd402b77881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacidadInventario: 10
+  compensar: 10
+  capacidadInventario: 50
   sistemaInventario:
-    invetarioRanuras: []
-  capacidadInventarioSecundario: 30
-  sistemaInventarioSecundario:
     invetarioRanuras: []
 --- !u!224 &1925589612 stripped
 RectTransform:
@@ -10307,6 +10443,7 @@ GameObject:
   - component: {fileID: 2085295714}
   - component: {fileID: 2085295713}
   - component: {fileID: 2085295712}
+  - component: {fileID: 2085295716}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: Untagged
@@ -10343,6 +10480,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obtenerRadio: 1
   datosElemento: {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
+  guardarDatosElemento:
+    DatosElemento: {fileID: 0}
+    Posicion: {x: 0, y: 0, z: 0}
+    Rotacion: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &2085295713
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10406,6 +10547,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085295710}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2085295716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085295710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 70d3d665-9495-4c4b-83e5-c4cd9ad7e40d
+  _tipo: 
 --- !u!1001 &2085462651
 PrefabInstance:
   m_ObjectHideFlags: 0

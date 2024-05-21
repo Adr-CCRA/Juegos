@@ -23,7 +23,7 @@ public class CajaReciclaje : TitularInventario, Interactuable
     AdministradorGuardarJuego.dato.cajaDiccionario.Add(GetComponent<UnicoID>().ID, guardarDatoCaja);
   }
 
-  private void CargarInventario(GuardarDato dato)
+  protected override void CargarInventario(GuardarDato dato)
   {
     // Verifica los datos guardados para esta caja específica y si existe, cárguelo.
     if(dato.cajaDiccionario.TryGetValue(GetComponent<UnicoID>().ID, out GuardarDatosCaja datosCaja)){
@@ -35,7 +35,7 @@ public class CajaReciclaje : TitularInventario, Interactuable
 
   public void Interactuar(Interactor interactor, out bool interactuarExitoso)
   {
-    visualizarInventarioDinamicoSolicitado?.Invoke(sistemaInventario);
+    visualizarInventarioDinamicoSolicitado?.Invoke(sistemaInventario, 0);
     interactuarExitoso = true;
   }
 
@@ -44,20 +44,4 @@ public class CajaReciclaje : TitularInventario, Interactuable
 
   }
 
-}
-
-[System.Serializable]
-public struct GuardarDatosCaja
-{
-  public SistemaInventario invSistema;
-  public Vector3 posicion;
-  public Quaternion rotacion;
-
-  public GuardarDatosCaja(SistemaInventario _invSistema, Vector3 _posicion, Quaternion _rotacion)
-  {
-    // Datos Guardados en el cofre
-    invSistema = _invSistema;
-    posicion = _posicion;
-    rotacion = _rotacion;
-  }
 }

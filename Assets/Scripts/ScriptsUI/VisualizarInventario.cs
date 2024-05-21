@@ -15,7 +15,7 @@ public abstract class VisualizarInventario : MonoBehaviour
   protected virtual void Start() {
     
   }
-  public abstract void AsignarRanura(SistemaInventario invVisualizar);
+  public abstract void AsignarRanura(SistemaInventario invVisualizar, int compensar);
   protected virtual void ActualizarRanuras(InvetarioRanura actualizarRanura){
     foreach (var ranura in RanuraDiccionario)
     {

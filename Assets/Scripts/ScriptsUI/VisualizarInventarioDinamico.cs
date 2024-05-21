@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEditor;
 
 public class VisualizarInventarioDinamico : VisualizarInventario
 {
@@ -9,21 +10,21 @@ public class VisualizarInventarioDinamico : VisualizarInventario
   protected override void Start() {
     base.Start();
   }
-  public void ActualizarInventarioDinamico(SistemaInventario invVisualizar){
+  public void ActualizarInventarioDinamico(SistemaInventario invVisualizar, int compensar){
     LimpiarRanuras();
     sistemaInventario = invVisualizar;
     if(sistemaInventario != null) sistemaInventario.CambioEnInventarioRanura += ActualizarRanuras;
-    AsignarRanura(invVisualizar);
+    AsignarRanura(invVisualizar, compensar);
   }
 
-  public override void AsignarRanura(SistemaInventario invVisualizar)
+  public override void AsignarRanura(SistemaInventario invVisualizar, int compensar)
   {
 
       ranuraDiccionario = new Dictionary<RaunuraInventarioUI, InvetarioRanura>();
 
       if(invVisualizar == null) return;
 
-      for (int i = 0; i < invVisualizar.CapacidadInventario; i++)
+      for (int i = compensar; i < invVisualizar.CapacidadInventario; i++)
       {
         var uiRanura = Instantiate(ranuraPrefab, transform);
         ranuraDiccionario.Add(uiRanura, invVisualizar.InvetarioRanuras[i]);

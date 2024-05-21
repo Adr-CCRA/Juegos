@@ -15,7 +15,6 @@ public class InvetarioRanura
   public int ID => id;
   public DatosInventario DatosElemento => datosElemento;
   public int CapacidadPila => capacidadPila;
-  private CajaClasificacion cajaClasificacion;
 
   public InvetarioRanura(DatosInventario fuente, int cantidad, int Id){
     this.id = Id;

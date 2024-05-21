@@ -6,26 +6,29 @@ using UnityEngine.Events;
 
 public class PersonajeTitularInventario : TitularInventario
 {
-  [SerializeField] protected int capacidadInventarioSecundario;
-  [SerializeField] protected SistemaInventario sistemaInventarioSecundario;
+  public static UnityAction cambioInventarioPersonaje;
 
-  public SistemaInventario SistemaInventarioSecundario => sistemaInventarioSecundario;
-  public static UnityAction<SistemaInventario> visualizarMochilaPersonajeDinamicoSolicitado;
-  protected override void Awake() {
-    base.Awake();
-
-    sistemaInventarioSecundario = new SistemaInventario(capacidadInventarioSecundario);
+  private void Start() {
+    AdministradorGuardarJuego.dato.inventarioPersonje = new GuardarDatosCaja(sistemaInventario);
   }
+
+  protected override void CargarInventario(GuardarDato dato)
+  {
+    // Verifica los datos guardados para esta caja específica y si existe, cárguelo.
+    if(dato.inventarioPersonje.invSistema != null){
+      this.sistemaInventario = dato.inventarioPersonje.invSistema;
+      cambioInventarioPersonaje?.Invoke();
+    }
+  }
+
   private void Update() {
     if(Keyboard.current.bKey.wasPressedThisFrame){
-      visualizarMochilaPersonajeDinamicoSolicitado?.Invoke(sistemaInventarioSecundario);
+      visualizarInventarioDinamicoSolicitado?.Invoke(sistemaInventario, compensar);
     }
   }
 
   public bool AgregarInventario(DatosInventario fuente, int cantidad){
     if(sistemaInventario.AgregarInvetario(fuente, cantidad)){
-      return true;
-    } else if (sistemaInventarioSecundario.AgregarInvetario(fuente, cantidad)) {
       return true;
     }
     return false;
