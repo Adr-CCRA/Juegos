@@ -95,11 +95,13 @@ public class PersonajeController : MonoBehaviour
         animador.SetTrigger("Agarrar");
     }
   private bool esSuelo() {
-    Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
+    Ray ray = new Ray(transform.position + Vector3.up * 0.1f, Vector3.down);
     if (Physics.Raycast(ray, out RaycastHit hit, 0.3f)){
-        return true;
-    } else {
-        return false;
+        // Verifica si el objeto golpeado tiene la etiqueta "Suelo"
+        if (hit.collider.CompareTag("Suelo")) {
+            return true;
+        }
     }
+    return false;
   }
 }
