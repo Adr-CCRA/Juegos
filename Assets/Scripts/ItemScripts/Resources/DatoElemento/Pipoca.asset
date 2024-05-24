@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pipoca
   m_EditorClassIdentifier: 
   ID: 2
-  IDTipo: 0
+  IDTipo: 1
   mostrarNombre: Pipoca
   Descripcion: Este es para plasitcos/envases
   icono: {fileID: 502222361, guid: 500d48bc8cc4831429b31fb73e5f069c, type: 3}

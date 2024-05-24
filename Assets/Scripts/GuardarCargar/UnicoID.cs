@@ -17,6 +17,7 @@ public class UnicoID : MonoBehaviour
     new SerializableDiccionario<string, GameObject>();
 
   public string ID => _id;
+  public string Tipo => _tipo;
 
   private void OnValidate() {
     if(idBaseDatos.ContainsKey(_id)) Generar();

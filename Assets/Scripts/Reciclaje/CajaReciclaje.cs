@@ -6,10 +6,14 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(UnicoID))]
-
 public class CajaReciclaje : TitularInventario, Interactuable
 {
+  public int IDTipoCaja; // Identificador de tipo de caja (0 para Plásticos, 1 para Papeles, etc.)
+  public string Tipo; // Nombre del tipo (Plásticos, Papeles, etc.)
   public UnityAction<Interactuable> InteraccionCompleta { get; set; }
+
+  // Propiedad pública para acceder a sistemaInventario
+  public SistemaInventario SistemaInventarios => sistemaInventario;
 
   protected override void Awake()
   {
@@ -17,19 +21,23 @@ public class CajaReciclaje : TitularInventario, Interactuable
     GuardarCargar.CargarJuego += CargarInventario;
   }
 
-  private void Start() {
-    var guardarDatoCaja = new GuardarDatosCaja(sistemaInventario, transform.position, transform.rotation);
+  private void Start()
+  {
+    sistemaInventario.InicializarDatosCaja(IDTipoCaja, Tipo);
 
+    var guardarDatoCaja = new GuardarDatosCaja(sistemaInventario, transform.position, transform.rotation);
     AdministradorGuardarJuego.dato.cajaDiccionario.Add(GetComponent<UnicoID>().ID, guardarDatoCaja);
   }
 
   protected override void CargarInventario(GuardarDato dato)
   {
-    // Verifica los datos guardados para esta caja específica y si existe, cárguelo.
-    if(dato.cajaDiccionario.TryGetValue(GetComponent<UnicoID>().ID, out GuardarDatosCaja datosCaja)){
+    if (dato.cajaDiccionario.TryGetValue(GetComponent<UnicoID>().ID, out GuardarDatosCaja datosCaja))
+    {
       this.sistemaInventario = datosCaja.invSistema;
       this.transform.position = datosCaja.posicion;
       this.transform.rotation = datosCaja.rotacion;
+
+      this.sistemaInventario.InicializarDatosCaja(IDTipoCaja, Tipo);
     }
   }
 
@@ -39,9 +47,12 @@ public class CajaReciclaje : TitularInventario, Interactuable
     interactuarExitoso = true;
   }
 
-  public void FinInteraccion()
+  public void FinInteraccion() { }
+
+  // Método para inicializar los datos de la caja
+  public void InicializarDatosCaja(int idTipoCaja, string tipo)
   {
-
+    this.IDTipoCaja = idTipoCaja;
+    this.Tipo = tipo;
   }
-
 }
