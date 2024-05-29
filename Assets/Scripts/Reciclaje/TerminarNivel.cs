@@ -8,6 +8,7 @@ public class TerminarNivel : MonoBehaviour
     public VerificadorDeBasura verificadorDeBasura;
     public Button botonGuardar;
     public Text resultadoTexto;
+    public Text puntajeTexto;
 
     private void Start()
     {
@@ -18,5 +19,16 @@ public class TerminarNivel : MonoBehaviour
     private void MostrarResultado(string mensaje)
     {
         resultadoTexto.text = mensaje;
+        ActualizarPuntajeTexto();
+    }
+
+    private void ActualizarPuntajeTexto()
+    {
+        int puntajeTotal = 0;
+        foreach (var resultado in verificadorDeBasura.resultados.Values)
+        {
+            puntajeTotal += resultado.puntaje;
+        }
+        puntajeTexto.text = $"Puntaje: {puntajeTotal}";
     }
 }

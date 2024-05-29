@@ -10,6 +10,7 @@ public class VerificadorDeBasura : MonoBehaviour
     public UnityEvent<string> onVerificacionCompletada; // Evento para mostrar el resultado de la verificación
 
     public Dictionary<string, ResultadosDato> resultados = new Dictionary<string, ResultadosDato>();
+    public int totalElementosNivel = 10; // Número total de elementos en el nivel
 
     public void VerificarBasura()
     {
@@ -62,7 +63,7 @@ public class VerificadorDeBasura : MonoBehaviour
         // Calcular el puntaje para cada tipo de basura
         foreach (var resultado in resultados.Values)
         {
-            resultado.puntaje = CalcularPuntaje(resultado.totalElementos, resultado.clasificacionCorrecta);
+            resultado.puntaje = CalcularPuntaje(totalElementosNivel, resultado.clasificacionCorrecta);
         }
 
         GuardarResultados();
@@ -102,13 +103,12 @@ public class VerificadorDeBasura : MonoBehaviour
         Debug.Log($"Resultados guardados en: {path}");
     }
 
-    public void ActualizarNivel(int nivel)
+    public void ActualizarNivel(int nuevoNivel)
     {
-        if (nivel == 2)
+        if (nuevoNivel == 2)
         {
-            // Aquí debes actualizar las cajasReciclaje con los nuevos tipos de basura para el nivel 2
-            // Por ejemplo:
-            // cajasReciclaje.Add(nuevaCajaDePlasticos);
+            totalElementosNivel = 20; // 10 papeles y 10 plásticos en el segundo nivel
+            // Aquí podrías agregar lógica adicional para habilitar nuevas basuras en el juego
         }
     }
 
