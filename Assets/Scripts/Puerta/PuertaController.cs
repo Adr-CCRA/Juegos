@@ -15,10 +15,14 @@ public class PuertaController : MonoBehaviour
   public AudioClip abrirPuerta;
   public AudioClip cerrarPuerta;
 
+  public bool puedeInteractuar = false; // Nueva variable para habilitar/deshabilitar la interacción
+
   public void CambioEstadoPuerta()
   {
+    if (!puedeInteractuar) return; // Si no se puede interactuar, no hacer nada
     puertaAbierta = !puertaAbierta;
   }
+
   void Start()
   {
     // Guardamos las rotaciones iniciales en los ejes X, Y y Z
@@ -41,7 +45,7 @@ public class PuertaController : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if(other.tag == "TriggerPuerta")
+    if (other.tag == "TriggerPuerta")
     {
       AudioSource.PlayClipAtPoint(cerrarPuerta, transform.position, 1);
     }
@@ -49,7 +53,7 @@ public class PuertaController : MonoBehaviour
 
   private void OnTriggerExit(Collider other)
   {
-    if(other.tag == "TriggerPuerta")
+    if (other.tag == "TriggerPuerta")
     {
       AudioSource.PlayClipAtPoint(abrirPuerta, transform.position, 1);
     }

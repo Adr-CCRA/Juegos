@@ -9,7 +9,7 @@ public class VerificadorDeBasura : MonoBehaviour
     public List<CajaReciclaje> cajasReciclaje; // Lista de todas las cajas de reciclaje en la escena
     public UnityEvent<string> onVerificacionCompletada; // Evento para mostrar el resultado de la verificación
 
-    private Dictionary<string, ResultadosDato> resultados = new Dictionary<string, ResultadosDato>();
+    public Dictionary<string, ResultadosDato> resultados = new Dictionary<string, ResultadosDato>();
 
     public void VerificarBasura()
     {
@@ -100,6 +100,16 @@ public class VerificadorDeBasura : MonoBehaviour
         string json = JsonUtility.ToJson(new ListaResultados { resultados = listaResultados }, true);
         File.WriteAllText(path, json);
         Debug.Log($"Resultados guardados en: {path}");
+    }
+
+    public void ActualizarNivel(int nivel)
+    {
+        if (nivel == 2)
+        {
+            // Aquí debes actualizar las cajasReciclaje con los nuevos tipos de basura para el nivel 2
+            // Por ejemplo:
+            // cajasReciclaje.Add(nuevaCajaDePlasticos);
+        }
     }
 
     [System.Serializable]
