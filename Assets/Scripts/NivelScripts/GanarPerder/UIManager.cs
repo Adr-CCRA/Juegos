@@ -25,8 +25,14 @@ public class UIManager : MonoBehaviour
         temporizador.DetenerTemporizador(); // Asegurarse de que el temporizador esté detenido al inicio
 
         // Asignar el evento del botón Continuar
-        botonContinuar.onClick.AddListener(BotonContinuar);
+        botonContinuar.onClick.AddListener(IniciarJuego);
         botonReintentar.onClick.AddListener(BotonReintentar);
+    }
+
+    private void IniciarJuego()
+    {
+        botonContinuar.gameObject.SetActive(false);
+        controladorNivel.IniciarNivel(); // Iniciar el nivel sin avanzar
     }
 
     public void MostrarPantallaVictoria(int puntaje, float tiempo)
@@ -57,7 +63,7 @@ public class UIManager : MonoBehaviour
     {
         pantallaVictoria.SetActive(false);
         botonContinuar.gameObject.SetActive(false);
-        controladorNivel.AvanzarNivel();
+        controladorNivel.AvanzarNivel(); // Avanzar el nivel
         temporizador.IniciarTemporizador(); // Iniciar el temporizador
     }
 }

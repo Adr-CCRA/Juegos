@@ -107,7 +107,8 @@ public class VerificadorDeBasura : MonoBehaviour
     {
         if (nuevoNivel == 2)
         {
-            totalElementosNivel = 20; // 10 papeles y 10 plásticos en el segundo nivel
+            Debug.Log("Estoy en nivel 2 de ActualizarNivel");
+            // totalElementosNivel = 20; // 10 papeles y 10 plásticos en el segundo nivel
             // Aquí podrías agregar lógica adicional para habilitar nuevas basuras en el juego
         }
     }

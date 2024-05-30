@@ -12,6 +12,7 @@ public class ControladorNivel : MonoBehaviour
     public UIManager uiManager; // Añadido: referencia al UIManager
 
     private int nivelActual = 1;
+    private bool nivelCompletado = false;
 
     private void Start()
     {
@@ -25,13 +26,16 @@ public class ControladorNivel : MonoBehaviour
         float tiempo = temporizador.ObtenerTiempo();
         if (puntaje >= puntosParaPasar)
         {
+            nivelCompletado = true;
             uiManager.MostrarPantallaVictoria(puntaje, tiempo);
             if (nivelActual == 1)
             {
+                Debug.Log("Estoy en nivel 1");
                 puertaCuarto.puedeInteractuar = true; // Habilitar la interacción
             }
             else if (nivelActual == 2)
             {
+                Debug.Log("Estoy en nivel 2");
                 // puertaPrincipal.puedeInteractuar = true; // Habilitar la interacción
             }
         }
@@ -49,18 +53,26 @@ public class ControladorNivel : MonoBehaviour
 
     public void AvanzarNivel()
     {
-        if (nivelActual == 1)
+        if (nivelCompletado)
         {
-            nivelActual = 2;
-            verificadorDeBasura.ActualizarNivel(2);
-            temporizador.IniciarTemporizador(); // Reiniciar el temporizador para el nuevo nivel
-        }
-        else if (nivelActual == 2)
-        {
-            Debug.Log("¡Juego completado!");
+            if (nivelActual == 1)
+            {
+                nivelActual = 2;
+                verificadorDeBasura.ActualizarNivel(2);
+                nivelCompletado = false; // Resetear el estado de nivel completado
+            }
+            else if (nivelActual == 2)
+            {
+                Debug.Log("¡Juego completado!");
+            }
         }
     }
 
+    public void IniciarNivel()
+    {
+        nivelCompletado = false; // Asegurarse de que el nivel no esté marcado como completado al inicio
+        temporizador.IniciarTemporizador(); // Iniciar el temporizador
+    }
     public void TiempoAgotado()
     {
         int puntaje = CalcularPuntajeTotal();
