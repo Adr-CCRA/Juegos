@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Temporizador : MonoBehaviour
 {
   public Text textoTiempo; // Texto UI para mostrar el tiempo
+  public float limiteTiempo = 120f; // Tiempo límite en segundos (por ejemplo, 2 minutos)
   private float tiempoTranscurrido;
   private bool contando;
 
@@ -21,6 +22,11 @@ public class Temporizador : MonoBehaviour
     {
       tiempoTranscurrido += Time.deltaTime;
       MostrarTiempo(tiempoTranscurrido);
+      if (tiempoTranscurrido >= limiteTiempo)
+      {
+        contando = false;
+        TiempoAgotado();
+      }
     }
   }
 
@@ -46,5 +52,10 @@ public class Temporizador : MonoBehaviour
   public float ObtenerTiempo()
   {
     return tiempoTranscurrido;
+  }
+
+  private void TiempoAgotado()
+  {
+    FindObjectOfType<ControladorNivel>().TiempoAgotado();
   }
 }
