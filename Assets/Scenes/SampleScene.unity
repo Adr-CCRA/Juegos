@@ -1027,6 +1027,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
   m_PrefabInstance: {fileID: 888832196}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &205673995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205673996}
+  - component: {fileID: 205673997}
+  m_Layer: 0
+  m_Name: PuertaCuartoPrincipal
+  m_TagString: TriggerPuerta
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &205673996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205673995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.384, y: 7.468, z: 21.025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 220636185}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &205673997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205673995}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11792469, y: 0.69412994, z: 0.6442833}
+  m_Center: {x: 0.44103765, y: 0.15293503, z: 0.17785835}
 --- !u!1001 &208535648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1158,6 +1203,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1962249729}
+  - {fileID: 1488377272}
+  - {fileID: 640557943}
+  - {fileID: 205673996}
+  - {fileID: 1793650877}
   m_Father: {fileID: 794561009}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2125,6 +2174,59 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
   m_PrefabInstance: {fileID: 513100701}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &347829370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8068073526183931155, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+  m_PrefabInstance: {fileID: 816799751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &347829374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347829370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882212236df21194e9eb3657fb33c1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puertaAbierta: 0
+  anguloApertura: -95
+  velocidadRotacionPuerta: 3
+  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  puedeInteractuar: 0
+--- !u!64 &347829375
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347829370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2619086233303812490, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+--- !u!54 &347829376
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347829370}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &400595097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2541,7 @@ MonoBehaviour:
   temporizador: {fileID: 1939048145}
   puntosParaPasar: 51
   puertaCuarto: {fileID: 1940539702}
+  puertaPrincipal: {fileID: 347829374}
   uiManager: {fileID: 525261617}
 --- !u!1001 &491623297
 PrefabInstance:
@@ -2826,6 +2929,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
+--- !u!1 &520576893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092708244707826562, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+  m_PrefabInstance: {fileID: 816799751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &520576897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520576893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882212236df21194e9eb3657fb33c1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puertaAbierta: 0
+  anguloApertura: -95
+  velocidadRotacionPuerta: 3
+  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  puedeInteractuar: 1
+--- !u!64 &520576898
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520576893}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2619086233303812490, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+--- !u!54 &520576899
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520576893}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &521272989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,6 +3904,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 193d03e0-7281-456a-b4ae-0117468700ad
   _tipo: 
+--- !u!1 &640557942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640557943}
+  - component: {fileID: 640557944}
+  m_Layer: 0
+  m_Name: PuertaBa
+  m_TagString: TriggerPuerta
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640557943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640557942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.384, y: 7.468, z: 10.481}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 220636185}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &640557944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640557942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11792469, y: 0.69412994, z: 0.6442833}
+  m_Center: {x: 0.44103765, y: 0.15293503, z: 0.17785835}
 --- !u!1001 &643518773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5488,7 +5689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8068073526183931155, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8068073526183931155, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+      propertyPath: m_TagString
+      value: Puerta
       objectReference: {fileID: 0}
     - target: {fileID: -7640558969779515294, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
@@ -5564,7 +5769,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2674951466746616315, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674951466746616315, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+      propertyPath: m_TagString
+      value: Puerta
       objectReference: {fileID: 0}
     - target: {fileID: 3594243245622329198, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
@@ -5580,7 +5789,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5092708244707826562, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092708244707826562, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+      propertyPath: m_TagString
+      value: Puerta
       objectReference: {fileID: 0}
     - target: {fileID: 8026070784539782434, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
@@ -5604,7 +5817,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8839568720538273707, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839568720538273707, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+      propertyPath: m_TagString
+      value: Puerta
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
@@ -7124,6 +7341,59 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
   m_PrefabInstance: {fileID: 112531971}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1008277469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8839568720538273707, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+  m_PrefabInstance: {fileID: 816799751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1008277473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008277469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882212236df21194e9eb3657fb33c1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puertaAbierta: 0
+  anguloApertura: -95
+  velocidadRotacionPuerta: 3
+  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  puedeInteractuar: 1
+--- !u!64 &1008277474
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008277469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2619086233303812490, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+--- !u!54 &1008277475
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008277469}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1010771482
 GameObject:
   m_ObjectHideFlags: 0
@@ -7546,6 +7816,59 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
   m_PrefabInstance: {fileID: 266264580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1155639871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2674951466746616315, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+  m_PrefabInstance: {fileID: 816799751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155639875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155639871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882212236df21194e9eb3657fb33c1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puertaAbierta: 0
+  anguloApertura: -95
+  velocidadRotacionPuerta: 3
+  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
+  puedeInteractuar: 1
+--- !u!64 &1155639876
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155639871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2619086233303812490, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
+--- !u!54 &1155639877
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155639871}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!224 &1163554518 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
@@ -8645,6 +8968,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
   m_PrefabInstance: {fileID: 1631662720}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1488377271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488377272}
+  - component: {fileID: 1488377273}
+  m_Layer: 0
+  m_Name: PuertaCocina
+  m_TagString: TriggerPuerta
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488377272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488377271}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 20.951, y: 7.506, z: 15.194}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 220636185}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1488377273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488377271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11792469, y: 0.69412994, z: 0.6442833}
+  m_Center: {x: 0.44103765, y: 0.15293503, z: 0.17785835}
 --- !u!1001 &1492534432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10498,6 +10866,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
+--- !u!1 &1793650876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793650877}
+  - component: {fileID: 1793650878}
+  m_Layer: 0
+  m_Name: PuertaPrincipal
+  m_TagString: TriggerPuerta
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793650877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793650876}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 30.958, y: 7.506, z: 14.727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 220636185}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1793650878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793650876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11792469, y: 0.69412994, z: 0.6442833}
+  m_Center: {x: 0.44103765, y: 0.15293503, z: 0.17785835}
 --- !u!1 &1805794366
 GameObject:
   m_ObjectHideFlags: 0

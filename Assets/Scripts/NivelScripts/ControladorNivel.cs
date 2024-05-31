@@ -8,7 +8,7 @@ public class ControladorNivel : MonoBehaviour
     public Temporizador temporizador;
     public int puntosParaPasar = 51;
     public PuertaController puertaCuarto;
-    // public PuertaController puertaPrincipal;
+    public PuertaController puertaPrincipal;
     public UIManager uiManager; // Añadido: referencia al UIManager
 
     private int nivelActual = 1;
@@ -32,11 +32,12 @@ public class ControladorNivel : MonoBehaviour
             {
                 Debug.Log("Estoy en nivel 1");
                 puertaCuarto.puedeInteractuar = true; // Habilitar la interacción
+                puertaCuarto.puertaAbierta = true;
             }
             else if (nivelActual == 2)
             {
                 Debug.Log("Estoy en nivel 2");
-                // puertaPrincipal.puedeInteractuar = true; // Habilitar la interacción
+                puertaPrincipal.puedeInteractuar = true; // Habilitar la interacción
             }
         }
         else
