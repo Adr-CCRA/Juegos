@@ -5,57 +5,59 @@ using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
-  public Text textoTiempo; // Texto UI para mostrar el tiempo
-  public float limiteTiempo = 120f; // Tiempo límite en segundos (por ejemplo, 2 minutos)
-  private float tiempoTranscurrido;
-  private bool contando;
+    public Text textoTiempo; // Texto UI para mostrar el tiempo
+    public float tiempoLimite = 120f; // Tiempo límite en segundos (2 minutos)
+    private float tiempoRestante;
+    private bool contando;
 
-  void Start()
-  {
-    tiempoTranscurrido = 0f;
-    contando = false;
-  }
-
-  void Update()
-  {
-    if (contando)
+    void Start()
     {
-      tiempoTranscurrido += Time.deltaTime;
-      MostrarTiempo(tiempoTranscurrido);
-      if (tiempoTranscurrido >= limiteTiempo)
-      {
+        tiempoRestante = tiempoLimite;
         contando = false;
-        TiempoAgotado();
-      }
     }
-  }
 
-  public void IniciarTemporizador()
-  {
-    tiempoTranscurrido = 0f;
-    contando = true;
-  }
+    void Update()
+    {
+        if (contando)
+        {
+            tiempoRestante -= Time.deltaTime;
+            MostrarTiempo(tiempoRestante);
 
-  public void DetenerTemporizador()
-  {
-    contando = false;
-  }
+            if (tiempoRestante <= 0)
+            {
+                tiempoRestante = 0;
+                contando = false;
+                TiempoTerminado();
+            }
+        }
+    }
 
-  void MostrarTiempo(float tiempo)
-  {
-    int minutos = Mathf.FloorToInt(tiempo / 60F);
-    int segundos = Mathf.FloorToInt(tiempo % 60F);
-    int milisegundos = Mathf.FloorToInt((tiempo * 1000F) % 1000F);
-    textoTiempo.text = string.Format("{0:00}:{1:00}:{2:000}", minutos, segundos, milisegundos);
-  }
+    public void IniciarTemporizador()
+    {
+        tiempoRestante = tiempoLimite;
+        contando = true;
+    }
 
-  public float ObtenerTiempo()
-  {
-    return tiempoTranscurrido;
-  }
+    public void DetenerTemporizador()
+    {
+        contando = false;
+    }
 
-  private void TiempoAgotado()
-  {
-    FindObjectOfType<ControladorNivel>().TiempoAgotado();
-  }
+    void MostrarTiempo(float tiempo)
+    {
+        int minutos = Mathf.FloorToInt(tiempo / 60F);
+        int segundos = Mathf.FloorToInt(tiempo % 60F);
+        int milisegundos = Mathf.FloorToInt((tiempo * 1000F) % 1000F);
+        textoTiempo.text = string.Format("{0:00}:{1:00}:{2:000}", minutos, segundos, milisegundos);
+    }
+
+    public float ObtenerTiempo()
+    {
+        return tiempoRestante;
+    }
+
+    private void TiempoTerminado()
+    {
+        FindObjectOfType<UIManager>().MostrarPantallaDerrota(FindObjectOfType<ControladorNivel>().CalcularPuntajeTotal(), tiempoLimite - tiempoRestante);
+    }
 }

@@ -39,9 +39,13 @@ public class ControladorNivel : MonoBehaviour
                 // puertaPrincipal.puedeInteractuar = true; // Habilitar la interacción
             }
         }
+        else
+        {
+            FindObjectOfType<UIManager>().MostrarPantallaDerrota(puntaje, temporizador.ObtenerTiempo());
+        }
     }
 
-    private int CalcularPuntajeTotal()
+    public int CalcularPuntajeTotal()
     {
         int puntajeTotal = 0;
         foreach (var resultado in verificadorDeBasura.resultados.Values)
@@ -73,19 +77,12 @@ public class ControladorNivel : MonoBehaviour
         nivelCompletado = false; // Asegurarse de que el nivel no esté marcado como completado al inicio
         temporizador.IniciarTemporizador(); // Iniciar el temporizador
     }
-    public void TiempoAgotado()
-    {
-        int puntaje = CalcularPuntajeTotal();
-        float tiempo = temporizador.ObtenerTiempo();
-        if (puntaje < puntosParaPasar)
-        {
-            uiManager.MostrarPantallaDerrota(puntaje, tiempo);
-        }
-    }
 
     public void ReiniciarNivel()
     {
+        nivelCompletado = false;
+        verificadorDeBasura.ActualizarNivel(nivelActual);
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-        temporizador.IniciarTemporizador(); // Reiniciar el temporizador
+        temporizador.IniciarTemporizador();
     }
 }

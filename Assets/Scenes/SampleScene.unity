@@ -852,6 +852,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 658dd45812c65f242a9a6e0cac488b94, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 971967699300399063, guid: 658dd45812c65f242a9a6e0cac488b94, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -2988,7 +2992,7 @@ RectTransform:
   - {fileID: 1061900507}
   - {fileID: 1724563452}
   m_Father: {fileID: 682757930}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4486,10 +4490,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 525261616}
   - {fileID: 773280054}
   - {fileID: 1545683108}
   - {fileID: 1595158886}
-  - {fileID: 525261616}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5126,7 +5130,7 @@ RectTransform:
   - {fileID: 563906873}
   - {fileID: 1517892094}
   m_Father: {fileID: 682757930}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8931,7 +8935,7 @@ RectTransform:
   - {fileID: 278069377}
   - {fileID: 1561990835}
   m_Father: {fileID: 682757930}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9443,7 +9447,7 @@ RectTransform:
   - {fileID: 1256175803}
   - {fileID: 1829135605}
   m_Father: {fileID: 682757930}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -11392,7 +11396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoTiempo: {fileID: 1939048142}
-  limiteTiempo: 120
+  tiempoLimite: 120
 --- !u!1 &1940539698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8617835151230357669, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
