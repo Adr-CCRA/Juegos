@@ -10,7 +10,7 @@ public class VerificadorDeBasura : MonoBehaviour
     public UnityEvent<string> onVerificacionCompletada; // Evento para mostrar el resultado de la verificación
 
     public Dictionary<string, ResultadosDato> resultados = new Dictionary<string, ResultadosDato>();
-    public int totalElementosNivel = 10; // Número total de elementos en el nivel
+    public int totalElementosNivel = 8; // Número total de elementos en el nivel
 
     public void VerificarBasura()
     {
@@ -53,7 +53,7 @@ public class VerificadorDeBasura : MonoBehaviour
                     }
                     else
                     {
-                        onVerificacionCompletada.Invoke($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion}  está en la caja incorrecta. Debe ir a la caja de {caja.Tipo}.");
+                        onVerificacionCompletada.Invoke($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion} está en la caja incorrecta. Debe ir a la caja de {caja.Tipo}.");
                         resultados[caja.Tipo].clasificacionIncorrecta++;
                     }
                 }
@@ -61,9 +61,11 @@ public class VerificadorDeBasura : MonoBehaviour
         }
 
         // Calcular el puntaje para cada tipo de basura
+        int totalCajas = cajasReciclaje.Count;
+        int elementosPorCaja = totalElementosNivel / totalCajas;
         foreach (var resultado in resultados.Values)
         {
-            resultado.puntaje = CalcularPuntaje(totalElementosNivel, resultado.clasificacionCorrecta);
+            resultado.puntaje = CalcularPuntaje(elementosPorCaja, resultado.clasificacionCorrecta);
         }
 
         GuardarResultados();
@@ -88,10 +90,11 @@ public class VerificadorDeBasura : MonoBehaviour
         return mensaje;
     }
 
-    private int CalcularPuntaje(int total, int correcto)
+    private int CalcularPuntaje(int elementosPorCaja, int correcto)
     {
-        if (total == 0) return 0;
-        return (int)((float)correcto / total * 100);
+        if (elementosPorCaja == 0) return 0;
+        float valorPorElemento = 100f / elementosPorCaja;
+        return (int)(correcto * valorPorElemento);
     }
 
     private void GuardarResultados()

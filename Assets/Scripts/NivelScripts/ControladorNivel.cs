@@ -49,11 +49,14 @@ public class ControladorNivel : MonoBehaviour
     public int CalcularPuntajeTotal()
     {
         int puntajeTotal = 0;
+        int cantidadTipos = verificadorDeBasura.resultados.Count;
+
         foreach (var resultado in verificadorDeBasura.resultados.Values)
         {
             puntajeTotal += resultado.puntaje;
         }
-        return puntajeTotal;
+
+        return puntajeTotal / cantidadTipos; // Calcular el promedio de los puntajes
     }
 
     public void AvanzarNivel()

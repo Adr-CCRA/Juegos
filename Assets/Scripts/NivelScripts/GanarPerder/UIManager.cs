@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
         botonReintentar.onClick.AddListener(ReiniciarJuego);
 
         jugador = GameObject.FindGameObjectWithTag("Player"); // Asumiendo que el jugador tiene el tag "Player"
+        jugador.GetComponent<PersonajeController>().enabled = false;
     }
 
     private void IniciarJuego()
