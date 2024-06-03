@@ -9,15 +9,19 @@ public class ControladorNivel : MonoBehaviour
     public int puntosParaPasar = 51;
     public PuertaController puertaCuarto;
     public PuertaController puertaPrincipal;
-    public UIManager uiManager; // Añadido: referencia al UIManager
+    public UIManager uiManager;
+    public GameObject cajasNivel1;
+    public GameObject cajasNivel2;
 
     private int nivelActual = 1;
     private bool nivelCompletado = false;
+    private int puntajeTotalNivel1 = 0;
 
     private void Start()
     {
         verificadorDeBasura.onVerificacionCompletada.AddListener(VerificarResultado);
         temporizador.DetenerTemporizador();
+        ActivarCajasNivel(1);
     }
 
     private void VerificarResultado(string mensaje)
@@ -30,14 +34,15 @@ public class ControladorNivel : MonoBehaviour
             uiManager.MostrarPantallaVictoria(puntaje, tiempo);
             if (nivelActual == 1)
             {
-                Debug.Log("Estoy en nivel 1");
-                puertaCuarto.puedeInteractuar = true; // Habilitar la interacción
+                Debug.Log("Nivel 1 completado");
+                puertaCuarto.puedeInteractuar = true;
                 puertaCuarto.puertaAbierta = true;
+                puntajeTotalNivel1 = puntaje; // Guardar el puntaje del nivel 1
             }
             else if (nivelActual == 2)
             {
-                Debug.Log("Estoy en nivel 2");
-                puertaPrincipal.puedeInteractuar = true; // Habilitar la interacción
+                Debug.Log("Nivel 2 completado");
+                puertaPrincipal.puedeInteractuar = true;
             }
         }
         else
@@ -67,7 +72,9 @@ public class ControladorNivel : MonoBehaviour
             {
                 nivelActual = 2;
                 verificadorDeBasura.ActualizarNivel(2);
-                nivelCompletado = false; // Resetear el estado de nivel completado
+                nivelCompletado = false;
+                ReiniciarPuntajeYTiempo();
+                ActivarCajasNivel(2);
             }
             else if (nivelActual == 2)
             {
@@ -76,10 +83,22 @@ public class ControladorNivel : MonoBehaviour
         }
     }
 
+    private void ReiniciarPuntajeYTiempo()
+    {
+        verificadorDeBasura.resultados.Clear();
+        temporizador.ReiniciarTemporizador();
+    }
+
+    private void ActivarCajasNivel(int nivel)
+    {
+        cajasNivel1.SetActive(nivel == 1);
+        cajasNivel2.SetActive(nivel == 2);
+    }
+
     public void IniciarNivel()
     {
-        nivelCompletado = false; // Asegurarse de que el nivel no esté marcado como completado al inicio
-        temporizador.IniciarTemporizador(); // Iniciar el temporizador
+        nivelCompletado = false;
+        temporizador.IniciarTemporizador();
     }
 
     public void ReiniciarNivel()

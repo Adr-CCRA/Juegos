@@ -72,6 +72,7 @@ public class UIManager : MonoBehaviour
     {
         pantallaVictoria.SetActive(false);
         botonContinuar.gameObject.SetActive(false);
+        botonReintentar.gameObject.SetActive(false);
         controladorNivel.AvanzarNivel(); // Avanzar el nivel
         temporizador.IniciarTemporizador(); // Iniciar el temporizador
         jugador.GetComponent<PersonajeController>().enabled = true; // Reactivar el controlador del jugador

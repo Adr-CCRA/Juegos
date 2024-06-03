@@ -43,6 +43,13 @@ public class Temporizador : MonoBehaviour
         contando = false;
     }
 
+    public void ReiniciarTemporizador()
+    {
+        tiempoRestante = tiempoLimite;
+        contando = false;
+        MostrarTiempo(tiempoRestante);
+    }
+
     void MostrarTiempo(float tiempo)
     {
         int minutos = Mathf.FloorToInt(tiempo / 60F);
