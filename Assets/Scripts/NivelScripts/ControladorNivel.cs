@@ -56,6 +56,8 @@ public class ControladorNivel : MonoBehaviour
         int puntajeTotal = 0;
         int cantidadTipos = verificadorDeBasura.resultados.Count;
 
+        if (cantidadTipos == 0) return 0; // Evitar división por cero
+
         foreach (var resultado in verificadorDeBasura.resultados.Values)
         {
             puntajeTotal += resultado.puntaje;
