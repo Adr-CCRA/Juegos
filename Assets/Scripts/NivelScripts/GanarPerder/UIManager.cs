@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject pantallaVictoria;
     public GameObject pantallaDerrota;
     public Text textoEstadisticas;
+    public Text textoNivel;
     public ControladorNivel controladorNivel;
     public Button botonContinuar; // Botón Continuar
     public Button botonReintentar; // Botón Reintentar

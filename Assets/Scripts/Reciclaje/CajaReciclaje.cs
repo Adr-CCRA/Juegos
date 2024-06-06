@@ -26,7 +26,16 @@ public class CajaReciclaje : TitularInventario, Interactuable
     sistemaInventario.InicializarDatosCaja(IDTipoCaja, Tipo);
 
     var guardarDatoCaja = new GuardarDatosCaja(sistemaInventario, transform.position, transform.rotation);
-    AdministradorGuardarJuego.dato.cajaDiccionario.Add(GetComponent<UnicoID>().ID, guardarDatoCaja);
+    var id = GetComponent<UnicoID>().ID;
+
+    if (!AdministradorGuardarJuego.dato.cajaDiccionario.ContainsKey(id))
+    {
+      AdministradorGuardarJuego.dato.cajaDiccionario.Add(id, guardarDatoCaja);
+    }
+    else
+    {
+      Debug.LogWarning($"La clave {id} ya existe en el diccionario.");
+    }
   }
 
   protected override void CargarInventario(GuardarDato dato)

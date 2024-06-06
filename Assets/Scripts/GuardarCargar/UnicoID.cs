@@ -20,8 +20,15 @@ public class UnicoID : MonoBehaviour
   public string Tipo => _tipo;
 
   private void OnValidate() {
-    if(idBaseDatos.ContainsKey(_id)) Generar();
-    else idBaseDatos.Add(_id, this.gameObject);
+    if (idBaseDatos.ContainsKey(_id))
+    {
+        Debug.LogWarning($"ID duplicado encontrado: {_id}. Generando un nuevo ID.");
+        Generar();
+    }
+    else
+    {
+        idBaseDatos.Add(_id, this.gameObject);
+    }
   }
 
   private void OnDestroy() {
@@ -30,8 +37,13 @@ public class UnicoID : MonoBehaviour
 
   private void Generar(){
     _id = Guid.NewGuid().ToString();
-    idBaseDatos.Add(_id, this.gameObject);
+    if (!idBaseDatos.ContainsKey(_id))
+    {
+        idBaseDatos.Add(_id, this.gameObject);
+    }
+    else
+    {
+        Debug.LogError($"El nuevo ID {_id} también ya existe. Esto no debería suceder.");
+    }
   }
-  
-
 }

@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ControladorNivel : MonoBehaviour
 {
-    public VerificadorDeBasura verificadorDeBasura;
+    public List<VerificadorDeBasura> verificadoresDeBasura; // Cambiar a una lista
     public Temporizador temporizador;
     public int puntosParaPasar = 51;
     public PuertaController puertaCuarto;
@@ -13,15 +12,24 @@ public class ControladorNivel : MonoBehaviour
     public GameObject cajasNivel1;
     public GameObject cajasNivel2;
 
-    private int nivelActual = 1;
+    public int nivelActual = 1;
     private bool nivelCompletado = false;
-    private int puntajeTotalNivel1 = 0;
 
     private void Start()
     {
-        verificadorDeBasura.onVerificacionCompletada.AddListener(VerificarResultado);
+        foreach (var verificador in verificadoresDeBasura)
+        {
+            verificador.onVerificacionCompletada.AddListener(VerificarResultado);
+        }
         temporizador.DetenerTemporizador();
-        ActivarCajasNivel(1);
+        nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+        ActivarCajasNivel(nivelActual);
+        CargarPuntajesPorNivel();
+    }
+
+    private void Update()
+    {
+        if (nivelActual == 2) puertaCuarto.puedeInteractuar = true;
     }
 
     private void VerificarResultado(string mensaje)
@@ -37,61 +45,68 @@ public class ControladorNivel : MonoBehaviour
                 Debug.Log("Nivel 1 completado");
                 puertaCuarto.puedeInteractuar = true;
                 puertaCuarto.puertaAbierta = true;
-                puntajeTotalNivel1 = puntaje; // Guardar el puntaje del nivel 1
             }
             else if (nivelActual == 2)
             {
                 Debug.Log("Nivel 2 completado");
                 puertaPrincipal.puedeInteractuar = true;
             }
+            foreach (var verificador in verificadoresDeBasura)
+            {
+                verificador.GuardarResultados();
+            }
+            GuardarNivel();
         }
         else
         {
-            FindObjectOfType<UIManager>().MostrarPantallaDerrota(puntaje, temporizador.ObtenerTiempo());
+            uiManager.MostrarPantallaDerrota(puntaje, tiempo);
         }
     }
 
     public int CalcularPuntajeTotal()
     {
         int puntajeTotal = 0;
-        int cantidadTipos = verificadorDeBasura.resultados.Count;
+        int cantidadTipos = 0;
 
-        if (cantidadTipos == 0) return 0; // Evitar división por cero
-
-        foreach (var resultado in verificadorDeBasura.resultados.Values)
+        foreach (var verificador in verificadoresDeBasura)
         {
-            puntajeTotal += resultado.puntaje;
+            cantidadTipos += verificador.resultados.Count;
+            foreach (var resultado in verificador.resultados.Values)
+            {
+                puntajeTotal += resultado.puntaje;
+            }
         }
 
-        return puntajeTotal / cantidadTipos; // Calcular el promedio de los puntajes
+        if (cantidadTipos == 0) return 0;
+        return puntajeTotal / cantidadTipos;
     }
 
     public void AvanzarNivel()
     {
         if (nivelCompletado)
         {
-            if (nivelActual == 1)
+            nivelActual++;
+            foreach (var verificador in verificadoresDeBasura)
             {
-                nivelActual = 2;
-                verificadorDeBasura.ActualizarNivel(2);
-                nivelCompletado = false;
-                ReiniciarPuntajeYTiempo();
-                ActivarCajasNivel(2);
+                verificador.ActualizarNivel(nivelActual);
             }
-            else if (nivelActual == 2)
-            {
-                Debug.Log("¡Juego completado!");
-            }
+            nivelCompletado = false;
+            ReiniciarPuntajeYTiempo();
+            ActivarCajasNivel(nivelActual);
+            GuardarNivel();
         }
     }
 
     private void ReiniciarPuntajeYTiempo()
     {
-        verificadorDeBasura.resultados.Clear();
+        foreach (var verificador in verificadoresDeBasura)
+        {
+            verificador.resultados.Clear();
+        }
         temporizador.ReiniciarTemporizador();
     }
 
-    private void ActivarCajasNivel(int nivel)
+    public void ActivarCajasNivel(int nivel)
     {
         cajasNivel1.SetActive(nivel == 1);
         cajasNivel2.SetActive(nivel == 2);
@@ -106,8 +121,63 @@ public class ControladorNivel : MonoBehaviour
     public void ReiniciarNivel()
     {
         nivelCompletado = false;
-        verificadorDeBasura.ActualizarNivel(nivelActual);
+        foreach (var verificador in verificadoresDeBasura)
+        {
+            verificador.ActualizarNivel(nivelActual);
+        }
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         temporizador.IniciarTemporizador();
+
+        var jugador = FindObjectOfType<PersonajeController>();
+        jugador.transform.position = AdministradorGuardarJuego.dato.posicionJugador;
+        ActivarCajasNivel(nivelActual);
     }
+
+    private void GuardarNivel()
+    {
+        foreach (var verificador in verificadoresDeBasura)
+        {
+            verificador.GuardarResultados();
+        }
+        AdministradorGuardarJuego.dato.nivelActual = nivelActual;
+        AdministradorGuardarJuego.GuardarDato();
+    }
+
+    private void CargarPuntajesPorNivel()
+    {
+        var nivelResultado = AdministradorGuardarJuego.dato.resultadosPorNivel.Find(nr => nr.nivel == nivelActual);
+        foreach (var verificador in verificadoresDeBasura)
+        {
+            verificador.resultados.Clear();
+        }
+        if (nivelResultado != null)
+        {
+            var resultadosCombinados = new Dictionary<string, VerificadorDeBasura.ResultadosDato>();
+            foreach (var resultado in nivelResultado.resultados)
+            {
+                if (resultadosCombinados.ContainsKey(resultado.Tipo))
+                {
+                    resultadosCombinados[resultado.Tipo].totalElementos += resultado.totalElementos;
+                    resultadosCombinados[resultado.Tipo].clasificacionCorrecta += resultado.clasificacionCorrecta;
+                    resultadosCombinados[resultado.Tipo].clasificacionIncorrecta += resultado.clasificacionIncorrecta;
+                    foreach (var verificador in verificadoresDeBasura){
+                    resultadosCombinados[resultado.Tipo].puntaje = verificador.CalcularPuntaje(verificador.totalElementosNivel / verificadoresDeBasura.Count, resultadosCombinados[resultado.Tipo].clasificacionCorrecta);
+                    }
+                }
+                else
+                {
+                    resultadosCombinados[resultado.Tipo] = resultado;
+                }
+            }
+
+            foreach (var verificador in verificadoresDeBasura)
+            {
+                foreach (var kvp in resultadosCombinados)
+                {
+                    verificador.resultados[kvp.Key] = kvp.Value;
+                }
+            }
+        }
+    }
+
 }

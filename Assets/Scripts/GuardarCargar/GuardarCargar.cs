@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Common;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,7 +17,7 @@ public static class GuardarCargar
     // BUSCA LA DIRECCION DE LA CARPETA
     string dir = Application.persistentDataPath + direccion;
 
-    GUIUtility.systemCopyBuffer = dir;
+    // GUIUtility.systemCopyBuffer = dir;
     // VERIFICA SI EXISTE LA DIRECCION DE LA CARPETA
     if (!Directory.Exists(dir))
     {
@@ -43,7 +40,6 @@ public static class GuardarCargar
     {
       string json = File.ReadAllText(rutaCompleta);
       dato = JsonUtility.FromJson<GuardarDato>(json);
-
       CargarJuego?.Invoke(dato);
     }
     else
@@ -54,9 +50,12 @@ public static class GuardarCargar
     return dato;
   }
 
-  internal static void EliminarDatoGuardado()
+  public static void EliminarDatoGuardado()
   {
     string rutaCompleta = Application.persistentDataPath + direccion + nombreArchivo;
-    if (File.Exists(rutaCompleta)) File.Delete(rutaCompleta);
+    if (File.Exists(rutaCompleta))
+    {
+      File.Delete(rutaCompleta);
+    }
   }
 }
