@@ -34,6 +34,10 @@ public class UIManager : MonoBehaviour
         jugador.GetComponent<PersonajeController>().enabled = false;
     }
 
+    private void Update() {
+        int nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+        textoNivel.text =$"Nivel: 1-{nivelActual}";
+    }
     private void IniciarJuego()
     {
         botonContinuar.gameObject.SetActive(false);

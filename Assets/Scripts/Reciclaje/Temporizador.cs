@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
-    public Text textoTiempo; // Texto UI para mostrar el tiempo
+    [SerializeField] public Text textoTiempo; // Texto UI para mostrar el tiempo
+    [SerializeField] private Slider slider;
     public float tiempoLimite = 120f; // Tiempo límite en segundos (2 minutos)
     private float tiempoRestante;
     private bool contando;
@@ -21,7 +22,13 @@ public class Temporizador : MonoBehaviour
         if (contando)
         {
             tiempoRestante -= Time.deltaTime;
+            if(tiempoRestante >= 0) 
+            {
+                slider.value = tiempoRestante;
+                
+            }
             MostrarTiempo(tiempoRestante);
+            // slider.maxValue = tiempoRestante;
 
             if (tiempoRestante <= 0)
             {
@@ -48,14 +55,16 @@ public class Temporizador : MonoBehaviour
         tiempoRestante = tiempoLimite;
         contando = false;
         MostrarTiempo(tiempoRestante);
+        // slider.maxValue = tiempoRestante;
     }
 
     void MostrarTiempo(float tiempo)
     {
         int minutos = Mathf.FloorToInt(tiempo / 60F);
         int segundos = Mathf.FloorToInt(tiempo % 60F);
-        int milisegundos = Mathf.FloorToInt((tiempo * 1000F) % 1000F);
-        textoTiempo.text = string.Format("{0:00}:{1:00}:{2:000}", minutos, segundos, milisegundos);
+        // int milisegundos = Mathf.FloorToInt((tiempo * 1000F) % 1000F);
+        textoTiempo.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+        slider.maxValue = tiempoLimite;
     }
 
     public float ObtenerTiempo()
