@@ -5,30 +5,57 @@ using UnityEngine.UI;
 
 public class TerminarNivel : MonoBehaviour
 {
-    public VerificadorDeBasura verificadorDeBasura;
+    public List<VerificadorDeBasura> verificadoresDeBasura;
     public Button botonGuardar;
     public Text resultadoTexto;
     public Text puntajeTexto;
+    public int nivelActual;
 
     private void Start()
     {
-        botonGuardar.onClick.AddListener(verificadorDeBasura.VerificarBasura);
-        verificadorDeBasura.onVerificacionCompletada.AddListener(MostrarResultado);
+        botonGuardar.onClick.AddListener(VerificarBasuraNivelActual);
+        nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+    }
+    private void Update() {
+        nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+    }
+    private void VerificarBasuraNivelActual()
+    {
+        foreach (var verificador in verificadoresDeBasura)
+        {
+            verificador.VerificarBasura();
+            verificador.onVerificacionCompletada.AddListener(MostrarResultado);
+        }
+
+        GuardarResultadosDeTodasLasInstancias();
     }
 
+    private void GuardarResultadosDeTodasLasInstancias()
+    {
+        MostrarResultado();
+    }
     private void MostrarResultado(string mensaje)
     {
         resultadoTexto.text = mensaje;
-        ActualizarPuntajeTexto();
+        MostrarResultado();
     }
 
-    private void ActualizarPuntajeTexto()
+    public void MostrarResultado()
     {
+        // string mensaje = "";
         int puntajeTotal = 0;
-        foreach (var resultado in verificadorDeBasura.resultados.Values)
+        int cantidadTipos = 0;
+
+        foreach (var verificador in verificadoresDeBasura)
         {
-            puntajeTotal += resultado.puntaje;
+            cantidadTipos += verificador.resultados.Count;
+            foreach (var resultado in verificador.resultados.Values)
+            {
+                puntajeTotal += resultado.puntaje;
+            }
         }
-        puntajeTexto.text = $"Puntaje: {puntajeTotal}";
+
+        // resultadoTexto.text = mensaje;
+        puntajeTexto.text = $"Puntaje: {puntajeTotal / cantidadTipos}";
     }
 }

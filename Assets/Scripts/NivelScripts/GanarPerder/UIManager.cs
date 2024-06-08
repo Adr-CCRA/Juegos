@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
         controladorNivel.ReiniciarNivel();
         temporizador.IniciarTemporizador(); // Reiniciar el temporizador
         jugador.GetComponent<PersonajeController>().enabled = true; // Reactivar el controlador del jugador
+        textoEstadisticas.text = "";
     }
 
     public void BotonContinuar()
@@ -81,5 +82,6 @@ public class UIManager : MonoBehaviour
         controladorNivel.AvanzarNivel(); // Avanzar el nivel
         temporizador.IniciarTemporizador(); // Iniciar el temporizador
         jugador.GetComponent<PersonajeController>().enabled = true; // Reactivar el controlador del jugador
+        textoEstadisticas.text = "";
     }
 }

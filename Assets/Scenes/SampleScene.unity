@@ -2830,6 +2830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400595098}
+  - component: {fileID: 400595099}
   m_Layer: 0
   m_Name: CajasClasificacion
   m_TagString: Untagged
@@ -2854,6 +2855,90 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &400595099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400595097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78d9bc405fef004bac472d1f909be5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cajasReciclajeNivel1:
+  - {fileID: 1596095931}
+  - {fileID: 1583796098}
+  cajasReciclajeNivel2:
+  - {fileID: 1022682171}
+  - {fileID: 1313755341}
+  - {fileID: 461063426}
+  - {fileID: 1003926826}
+  onVerificacionCompletada:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1022682168}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1313755335}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 461063420}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1003926823}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1256175804}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  totalElementosNivel: 8
 --- !u!224 &405936627 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
@@ -3411,8 +3496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verificadoresDeBasura:
-  - {fileID: 673675918}
-  - {fileID: 1075439428}
+  - {fileID: 400595099}
   temporizador: {fileID: 1939048145}
   puntosParaPasar: 51
   puertaCuarto: {fileID: 1940539702}
@@ -5624,7 +5708,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 673675917}
-  - component: {fileID: 673675918}
   m_Layer: 0
   m_Name: CajasNivel1
   m_TagString: Untagged
@@ -5649,49 +5732,6 @@ Transform:
   m_Father: {fileID: 400595098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &673675918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673675916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b78d9bc405fef004bac472d1f909be5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cajasReciclaje:
-  - {fileID: 1583796098}
-  - {fileID: 1596095931}
-  onVerificacionCompletada:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1583796093}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1596095928}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  totalElementosNivel: 8
 --- !u!1 &680471235
 GameObject:
   m_ObjectHideFlags: 0
@@ -7694,10 +7734,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffffd360e9aef394eade14be0ba9019e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verificadorDeBasura: {fileID: 673675918}
+  verificadoresDeBasura:
+  - {fileID: 400595099}
   botonGuardar: {fileID: 857714910}
   resultadoTexto: {fileID: 1256175804}
   puntajeTexto: {fileID: 1829135606}
+  nivelActual: 0
 --- !u!114 &857714910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8959,7 +9001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: bc7ae56f-9e8b-4ff8-9e2a-68e65230decb
+  _id: 56308e6d-373e-4c31-9e09-7d15bb68b425
   _tipo: Vidrio
 --- !u!114 &1003926826
 MonoBehaviour:
@@ -9430,8 +9472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 511eba9a-924a-4577-9905-27d442b0a089
-  _tipo: Papeles
+  _id: 0e2c3d15-b572-420a-bd5b-4770157606a7
+  _tipo: Papeles/Carton
 --- !u!114 &1022682171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9811,7 +9853,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1075439427}
-  - component: {fileID: 1075439428}
   m_Layer: 0
   m_Name: CajasNivel2
   m_TagString: Untagged
@@ -9838,75 +9879,6 @@ Transform:
   m_Father: {fileID: 400595098}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1075439428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075439426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b78d9bc405fef004bac472d1f909be5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cajasReciclaje:
-  - {fileID: 1022682171}
-  - {fileID: 1313755341}
-  - {fileID: 461063426}
-  - {fileID: 1003926826}
-  onVerificacionCompletada:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1022682168}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1313755335}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 461063420}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1003926823}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  totalElementosNivel: 16
 --- !u!1001 &1090029537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10608,16 +10580,16 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 7
     m_MaxSize: 70
-    m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_Alignment: 3
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: hola
+  m_Text: holasdasdsdsdsdsdsd1
 --- !u!222 &1256175805
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10911,8 +10883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 52c56b1c-01ea-490d-b1d1-85355e9f077d
-  _tipo: Plasticos
+  _id: e3b9c3c1-ef3f-4c03-a55a-a5a2dcf41567
+  _tipo: Plasticos/Envase
 --- !u!65 &1313755337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12504,7 +12476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b603da31e0a8c4a9bb55f236140ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 3e7ddafe-1631-48cb-bc0b-7aff97b0c693
+  _id: 3ecff00d-7e33-4a51-8e94-61b119a170e4
   _tipo: Plasticos
 --- !u!1001 &1589842367
 PrefabInstance:

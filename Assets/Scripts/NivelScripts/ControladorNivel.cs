@@ -51,10 +51,8 @@ public class ControladorNivel : MonoBehaviour
                 Debug.Log("Nivel 2 completado");
                 puertaPrincipal.puedeInteractuar = true;
             }
-            foreach (var verificador in verificadoresDeBasura)
-            {
-                verificador.GuardarResultados();
-            }
+
+            GuardarResultadosDeTodasLasInstancias();
             GuardarNivel();
         }
         else
@@ -135,10 +133,7 @@ public class ControladorNivel : MonoBehaviour
 
     private void GuardarNivel()
     {
-        foreach (var verificador in verificadoresDeBasura)
-        {
-            verificador.GuardarResultados();
-        }
+        GuardarResultadosDeTodasLasInstancias();
         AdministradorGuardarJuego.dato.nivelActual = nivelActual;
         AdministradorGuardarJuego.GuardarDato();
     }
@@ -160,9 +155,7 @@ public class ControladorNivel : MonoBehaviour
                     resultadosCombinados[resultado.Tipo].totalElementos += resultado.totalElementos;
                     resultadosCombinados[resultado.Tipo].clasificacionCorrecta += resultado.clasificacionCorrecta;
                     resultadosCombinados[resultado.Tipo].clasificacionIncorrecta += resultado.clasificacionIncorrecta;
-                    foreach (var verificador in verificadoresDeBasura){
-                    resultadosCombinados[resultado.Tipo].puntaje = verificador.CalcularPuntaje(verificador.totalElementosNivel / verificadoresDeBasura.Count, resultadosCombinados[resultado.Tipo].clasificacionCorrecta);
-                    }
+                    resultadosCombinados[resultado.Tipo].puntaje = verificadoresDeBasura[0].CalcularPuntaje(resultadosCombinados[resultado.Tipo].totalElementos, resultadosCombinados[resultado.Tipo].clasificacionCorrecta);
                 }
                 else
                 {
@@ -180,4 +173,11 @@ public class ControladorNivel : MonoBehaviour
         }
     }
 
+    private void GuardarResultadosDeTodasLasInstancias()
+    {
+        foreach (var verificador in verificadoresDeBasura)
+        {
+            verificador.GuardarResultados();
+        }
+    }
 }

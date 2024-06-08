@@ -1,36 +1,49 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System.IO;
 using System;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
+using System.Linq;
 
 public class VerificadorDeBasura : MonoBehaviour
 {
-    public List<CajaReciclaje> cajasReciclaje; // Lista de todas las cajas de reciclaje en la escena
+    public List<CajaReciclaje> cajasReciclajeNivel1; // Lista de cajas de reciclaje para nivel 1
+    public List<CajaReciclaje> cajasReciclajeNivel2; // Lista de cajas de reciclaje para nivel 2
     public UnityEvent<string> onVerificacionCompletada; // Evento para mostrar el resultado de la verificación
-
     public Dictionary<string, ResultadosDato> resultados = new Dictionary<string, ResultadosDato>();
     public int totalElementosNivel = 8; // Número total de elementos en el nivel
+
+    private int nivelActual; // Nivel actual a verificar
+
+    private void Update() {
+        nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+    }
 
     public void VerificarBasura()
     {
         resultados.Clear();
 
+        List<CajaReciclaje> cajasReciclaje = null;
+
+        if (nivelActual == 1)
+        {
+            cajasReciclaje = cajasReciclajeNivel1;
+        }
+        else if (nivelActual == 2)
+        {
+            cajasReciclaje = cajasReciclajeNivel2;
+        }
+
         if (cajasReciclaje == null || cajasReciclaje.Count == 0)
         {
-            Debug.LogError("No hay cajas de reciclaje asignadas.");
+            Debug.LogError("No hay cajas de reciclaje asignadas para el nivel actual.");
             return;
         }
 
-        for (int i = 0; i < cajasReciclaje.Count; i++)
+        foreach (var caja in cajasReciclaje)
         {
-            var caja = cajasReciclaje[i];
             if (caja == null)
             {
-                Debug.LogError($"La caja de reciclaje en la posición {i} es null.");
+                Debug.LogError("Caja de reciclaje nula encontrada.");
                 continue;
             }
 
@@ -57,6 +70,7 @@ public class VerificadorDeBasura : MonoBehaviour
                     else
                     {
                         onVerificacionCompletada.Invoke($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion} está en la caja incorrecta. Debe ir a la caja de {caja.Tipo}.");
+                        Debug.Log($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion} está en la caja incorrecta.");
                         resultados[caja.Tipo].clasificacionIncorrecta++;
                     }
                 }
@@ -73,6 +87,7 @@ public class VerificadorDeBasura : MonoBehaviour
 
         string mensaje = GenerarMensajeResultados();
         onVerificacionCompletada.Invoke(mensaje);
+        Debug.Log(mensaje);
 
         GuardarResultados();
     }
@@ -84,13 +99,13 @@ public class VerificadorDeBasura : MonoBehaviour
         foreach (var resultado in resultados.Values)
         {
             if (resultado.clasificacionIncorrecta > 0)
-            {
-                mensaje += $"{resultado.Tipo} tiene {resultado.clasificacionIncorrecta} incorrectos.\n";
-            }
-            else
-            {
-                mensaje += $"{resultado.Tipo} correcto.\n";
-            }
+                {
+                    mensaje += $"{resultado.Tipo}  es incorrecto\n";
+                }
+                else
+                {
+                    mensaje += $"{resultado.Tipo} correcto.\n";
+                }
         }
         return mensaje;
     }
@@ -119,7 +134,7 @@ public class VerificadorDeBasura : MonoBehaviour
                     resultadosCombinados[kvp.Key].totalElementos += kvp.Value.totalElementos;
                     resultadosCombinados[kvp.Key].clasificacionCorrecta += kvp.Value.clasificacionCorrecta;
                     resultadosCombinados[kvp.Key].clasificacionIncorrecta += kvp.Value.clasificacionIncorrecta;
-                    resultadosCombinados[kvp.Key].puntaje = CalcularPuntaje(controladorNivel.verificadoresDeBasura[0].totalElementosNivel / controladorNivel.verificadoresDeBasura.Count, resultadosCombinados[kvp.Key].clasificacionCorrecta);
+                    resultadosCombinados[kvp.Key].puntaje = CalcularPuntaje(resultadosCombinados[kvp.Key].totalElementos, resultadosCombinados[kvp.Key].clasificacionCorrecta);
                 }
                 else
                 {
