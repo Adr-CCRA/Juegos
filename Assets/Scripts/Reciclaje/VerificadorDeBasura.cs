@@ -9,13 +9,18 @@ public class VerificadorDeBasura : MonoBehaviour
     public List<CajaReciclaje> cajasReciclajeNivel1; // Lista de cajas de reciclaje para nivel 1
     public List<CajaReciclaje> cajasReciclajeNivel2; // Lista de cajas de reciclaje para nivel 2
     public UnityEvent<string> onVerificacionCompletada; // Evento para mostrar el resultado de la verificación
+    public UnityEvent<string> onVerificacionElementos;
+    public UnityEvent<string> onVerificacionIncorrecto;
     public Dictionary<string, ResultadosDato> resultados = new Dictionary<string, ResultadosDato>();
-    public int totalElementosNivel = 8; // Número total de elementos en el nivel
+    public int totalElementosNivel; // Número total de elementos en el nivel
 
     private int nivelActual; // Nivel actual a verificar
 
     private void Update() {
         nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+        ActualizarNivel(nivelActual);
+        string mensajeElementos = $"Recolectar: {totalElementosNivel}";
+        onVerificacionElementos.Invoke(mensajeElementos);
     }
 
     public void VerificarBasura()
@@ -69,7 +74,7 @@ public class VerificadorDeBasura : MonoBehaviour
                     }
                     else
                     {
-                        onVerificacionCompletada.Invoke($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion} está en la caja incorrecta. Debe ir a la caja de {caja.Tipo}.");
+                        onVerificacionIncorrecto.Invoke($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion} está en la caja incorrecta. Debe ir a la caja de {caja.Tipo}.");
                         Debug.Log($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion} está en la caja incorrecta.");
                         resultados[caja.Tipo].clasificacionIncorrecta++;
                     }

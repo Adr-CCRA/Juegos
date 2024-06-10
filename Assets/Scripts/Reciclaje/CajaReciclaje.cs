@@ -15,6 +15,8 @@ public class CajaReciclaje : TitularInventario, Interactuable
   // Propiedad pública para acceder a sistemaInventario
   public SistemaInventario SistemaInventarios => sistemaInventario;
 
+  public UnityEvent<string> onVerificacionTipoCaja; // Evento para mostrar el resultado de la verificación
+
   protected override void Awake()
   {
     base.Awake();
@@ -38,6 +40,11 @@ public class CajaReciclaje : TitularInventario, Interactuable
     }
   }
 
+  private void Update() {
+    string mensaje = Tipo;
+    onVerificacionTipoCaja.Invoke(mensaje);
+  }
+
   protected override void CargarInventario(GuardarDato dato)
   {
     if (dato.cajaDiccionario.TryGetValue(GetComponent<UnicoID>().ID, out GuardarDatosCaja datosCaja))
@@ -53,6 +60,8 @@ public class CajaReciclaje : TitularInventario, Interactuable
   public void Interactuar(Interactor interactor, out bool interactuarExitoso)
   {
     visualizarInventarioDinamicoSolicitado?.Invoke(sistemaInventario, 0);
+    string mensaje = Tipo;
+    onVerificacionTipoCaja.Invoke(mensaje);
     interactuarExitoso = true;
   }
 

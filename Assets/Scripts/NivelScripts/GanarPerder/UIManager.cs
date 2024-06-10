@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject pantallaVictoria;
     public GameObject pantallaDerrota;
     public Text textoEstadisticas;
+    public Text textoDerrotaEstad;
     public Text textoNivel;
     public ControladorNivel controladorNivel;
     public Button botonContinuar; // Botón Continuar
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
     public Temporizador temporizador; // Referencia al temporizador
 
     private GameObject jugador; // Referencia al objeto del jugador
+    private int  nivelActual;
 
     private void Start()
     {
@@ -35,7 +37,7 @@ public class UIManager : MonoBehaviour
     }
 
     private void Update() {
-        int nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+        nivelActual = AdministradorGuardarJuego.dato.nivelActual;
         textoNivel.text =$"Nivel: 1-{nivelActual}";
     }
     private void IniciarJuego()
@@ -48,8 +50,13 @@ public class UIManager : MonoBehaviour
 
     public void MostrarPantallaVictoria(int puntaje, float tiempo)
     {
+        float finTiempo = temporizador.tiempoLimite - tiempo;
+        int minutos = Mathf.FloorToInt(finTiempo / 60F);
+        int segundos = Mathf.FloorToInt(finTiempo % 60F);
+        string tiempoFinalizado = string.Format("{0:00}:{1:00}", minutos, segundos);
         pantallaVictoria.SetActive(true);
-        textoEstadisticas.text = $"Puntaje: {puntaje}\nTiempo: {tiempo:0.00} segundos";
+        pantallaDerrota.SetActive(false);
+        textoEstadisticas.text = $"Nivel: {nivelActual}\nPuntaje: {puntaje}\nTiempo: {tiempoFinalizado}";
         botonContinuar.gameObject.SetActive(true);
         jugador.GetComponent<PersonajeController>().enabled = false; // Desactivar el controlador del jugador
         temporizador.DetenerTemporizador(); // Detener el temporizador
@@ -57,8 +64,12 @@ public class UIManager : MonoBehaviour
 
     public void MostrarPantallaDerrota(int puntaje, float tiempo)
     {
+        float finTiempo = temporizador.tiempoLimite- tiempo;
+        int minutos = Mathf.FloorToInt(finTiempo / 60F);
+        int segundos = Mathf.FloorToInt(finTiempo % 60F);
+        string tiempoFinalizado = string.Format("{0:00}:{1:00}", minutos, segundos);
         pantallaDerrota.SetActive(true);
-        textoEstadisticas.text = $"Puntaje: {puntaje}\nTiempo: {tiempo:0.00} segundos";
+        textoDerrotaEstad.text = $"Nivel: {nivelActual}\nPuntaje: {puntaje}\nTiempo: {tiempoFinalizado}";
         botonReintentar.gameObject.SetActive(true);
         jugador.GetComponent<PersonajeController>().enabled = false; // Desactivar el controlador del jugador
         temporizador.DetenerTemporizador(); // Detener el temporizador
@@ -67,21 +78,21 @@ public class UIManager : MonoBehaviour
     public void ReiniciarJuego()
     {
         pantallaDerrota.SetActive(false);
+        pantallaVictoria.SetActive(false);
         botonReintentar.gameObject.SetActive(false);
         controladorNivel.ReiniciarNivel();
         temporizador.IniciarTemporizador(); // Reiniciar el temporizador
         jugador.GetComponent<PersonajeController>().enabled = true; // Reactivar el controlador del jugador
-        textoEstadisticas.text = "";
     }
 
     public void BotonContinuar()
     {
         pantallaVictoria.SetActive(false);
+        pantallaDerrota.SetActive(false);
         botonContinuar.gameObject.SetActive(false);
         botonReintentar.gameObject.SetActive(false);
         controladorNivel.AvanzarNivel(); // Avanzar el nivel
         temporizador.IniciarTemporizador(); // Iniciar el temporizador
         jugador.GetComponent<PersonajeController>().enabled = true; // Reactivar el controlador del jugador
-        textoEstadisticas.text = "";
     }
 }
