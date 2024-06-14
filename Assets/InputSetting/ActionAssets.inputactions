@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pausa",
+                    "type": "Button",
+                    "id": "891e48f8-b098-4e21-9f11-97c935fe0610",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -302,6 +311,17 @@
                     "action": "Camara",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b932fb20-34ef-423c-b96c-22ff0125f38f",
+                    "path": "",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pausa",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

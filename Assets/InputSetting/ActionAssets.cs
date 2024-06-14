@@ -80,6 +80,15 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pausa"",
+                    ""type"": ""Button"",
+                    ""id"": ""891e48f8-b098-4e21-9f11-97c935fe0610"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -324,6 +333,17 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                     ""action"": ""Camara"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b932fb20-34ef-423c-b96c-22ff0125f38f"",
+                    ""path"": """",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pausa"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -338,6 +358,7 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
         m_Personaje_Agacharce = m_Personaje.FindAction("Agacharce", throwIfNotFound: true);
         m_Personaje_Mirar = m_Personaje.FindAction("Mirar", throwIfNotFound: true);
         m_Personaje_Camara = m_Personaje.FindAction("Camara", throwIfNotFound: true);
+        m_Personaje_Pausa = m_Personaje.FindAction("Pausa", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -403,6 +424,7 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
     private readonly InputAction m_Personaje_Agacharce;
     private readonly InputAction m_Personaje_Mirar;
     private readonly InputAction m_Personaje_Camara;
+    private readonly InputAction m_Personaje_Pausa;
     public struct PersonajeActions
     {
         private @ActionAssets m_Wrapper;
@@ -413,6 +435,7 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
         public InputAction @Agacharce => m_Wrapper.m_Personaje_Agacharce;
         public InputAction @Mirar => m_Wrapper.m_Personaje_Mirar;
         public InputAction @Camara => m_Wrapper.m_Personaje_Camara;
+        public InputAction @Pausa => m_Wrapper.m_Personaje_Pausa;
         public InputActionMap Get() { return m_Wrapper.m_Personaje; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -440,6 +463,9 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                 @Camara.started -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnCamara;
                 @Camara.performed -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnCamara;
                 @Camara.canceled -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnCamara;
+                @Pausa.started -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnPausa;
+                @Pausa.performed -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnPausa;
+                @Pausa.canceled -= m_Wrapper.m_PersonajeActionsCallbackInterface.OnPausa;
             }
             m_Wrapper.m_PersonajeActionsCallbackInterface = instance;
             if (instance != null)
@@ -462,6 +488,9 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
                 @Camara.started += instance.OnCamara;
                 @Camara.performed += instance.OnCamara;
                 @Camara.canceled += instance.OnCamara;
+                @Pausa.started += instance.OnPausa;
+                @Pausa.performed += instance.OnPausa;
+                @Pausa.canceled += instance.OnPausa;
             }
         }
     }
@@ -474,5 +503,6 @@ public partial class @ActionAssets : IInputActionCollection2, IDisposable
         void OnAgacharce(InputAction.CallbackContext context);
         void OnMirar(InputAction.CallbackContext context);
         void OnCamara(InputAction.CallbackContext context);
+        void OnPausa(InputAction.CallbackContext context);
     }
 }
