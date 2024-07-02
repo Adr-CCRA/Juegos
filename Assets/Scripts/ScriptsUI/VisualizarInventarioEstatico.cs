@@ -36,6 +36,9 @@ public class VisualizarInventarioEstatico : VisualizarInventario
     base.Start();
     ActualizarVisualizarEstatico();
   }
+  private void Update() {
+    ActualizarVisualizarEstatico();
+  }
   public override void AsignarRanura(SistemaInventario invVisualizar, int compensar)
   {
     ranuraDiccionario = new Dictionary<RaunuraInventarioUI, InvetarioRanura>();
