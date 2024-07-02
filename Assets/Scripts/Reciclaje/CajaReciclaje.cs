@@ -17,10 +17,14 @@ public class CajaReciclaje : TitularInventario, Interactuable
 
   public UnityEvent<string> onVerificacionTipoCaja; // Evento para mostrar el resultado de la verificación
 
+  private CajaCambioColor CajaCambioColor;
+
+  public TapaBasureroController tapaBasurero; // Asigna el controlador de la tapa del basurero
   protected override void Awake()
   {
     base.Awake();
     GuardarCargar.CargarJuego += CargarInventario;
+    CajaCambioColor = GetComponent<CajaCambioColor>();
   }
 
   private void Start()
@@ -40,7 +44,8 @@ public class CajaReciclaje : TitularInventario, Interactuable
     }
   }
 
-  private void Update() {
+  private void Update()
+  {
     string mensaje = Tipo;
     onVerificacionTipoCaja.Invoke(mensaje);
   }
@@ -62,6 +67,11 @@ public class CajaReciclaje : TitularInventario, Interactuable
     visualizarInventarioDinamicoSolicitado?.Invoke(sistemaInventario, 0);
     string mensaje = Tipo;
     onVerificacionTipoCaja.Invoke(mensaje);
+    // Interactuar con la tapa del basurero
+    if (tapaBasurero != null)
+    {
+        tapaBasurero.AbrirTapa();
+    }
     interactuarExitoso = true;
   }
 
@@ -72,5 +82,9 @@ public class CajaReciclaje : TitularInventario, Interactuable
   {
     this.IDTipoCaja = idTipoCaja;
     this.Tipo = tipo;
+  }
+  public void SetHighlight(bool highlight)
+  {
+    CajaCambioColor?.Highlight(highlight);
   }
 }

@@ -15,3 +15,9 @@ MonoBehaviour:
   _elementosBD:
   - {fileID: 11400000, guid: 9c5d47937c8123f4abd64b0e7bc51ecf, type: 2}
   - {fileID: 11400000, guid: 004ceefdd9e19ea45bcaba4320534bc5, type: 2}
+  - {fileID: 11400000, guid: ca847e112fb221c4898a7806ee0a2214, type: 2}
+  - {fileID: 11400000, guid: a5c84e9c844f40a4d95007e46480cb31, type: 2}
+  - {fileID: 11400000, guid: 8ecb815e43594bb4a858794b5e8a4433, type: 2}
+  - {fileID: 11400000, guid: d4b8b4eb444c9e14092fa5c76e01acef, type: 2}
+  - {fileID: 11400000, guid: 3659048780cd6674dbf57113fdf09458, type: 2}
+  - {fileID: 11400000, guid: 429e33b47a19ce645a6744cba2062fb7, type: 2}

@@ -74,7 +74,7 @@ public class VerificadorDeBasura : MonoBehaviour
                     }
                     else
                     {
-                        onVerificacionIncorrecto.Invoke($"La basura {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion}");
+                        onVerificacionIncorrecto.Invoke($"La basura {ranura.DatosElemento.mostrarNombre} esta en el contenedor incorrecto, {ranura.DatosElemento.Descripcion}");
                         Debug.Log($"El elemento {ranura.DatosElemento.mostrarNombre}, {ranura.DatosElemento.Descripcion} está en la caja incorrecta.");
                         resultados[caja.Tipo].clasificacionIncorrecta++;
                     }
