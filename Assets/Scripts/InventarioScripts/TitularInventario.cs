@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [System.Serializable]
 public abstract class TitularInventario : MonoBehaviour
 {
-  [SerializeField] protected int compensar = 10;
+  [SerializeField] protected int compensar;
   [SerializeField] private int capacidadInventario;
   [SerializeField] protected SistemaInventario sistemaInventario;
 

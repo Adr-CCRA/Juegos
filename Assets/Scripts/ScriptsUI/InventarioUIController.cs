@@ -15,9 +15,11 @@ public class InventarioUIController : MonoBehaviour
 
   private void OnEnable() {
     TitularInventario.visualizarInventarioDinamicoSolicitado += InventarioVisualizar;
+    PersonajeTitularInventario.visualizarInventarioPersonajeSolicitado += InventarioJugadorVisualizar;
   }
   private void OnDisable() {
     TitularInventario.visualizarInventarioDinamicoSolicitado -= InventarioVisualizar;
+    PersonajeTitularInventario.visualizarInventarioPersonajeSolicitado -= InventarioJugadorVisualizar;
   }
   void Update()
   {
@@ -33,5 +35,9 @@ public class InventarioUIController : MonoBehaviour
   void InventarioVisualizar(SistemaInventario invVisualizar, int compensar){
     inventarioPanel.gameObject.SetActive(true);
     inventarioPanel.ActualizarInventarioDinamico(invVisualizar, compensar);
+  }
+  void InventarioJugadorVisualizar(SistemaInventario invVisualizar, int compensar){
+    mochilaPersonajePanel.gameObject.SetActive(true);
+    mochilaPersonajePanel.ActualizarInventarioDinamico(invVisualizar, compensar);
   }
 }

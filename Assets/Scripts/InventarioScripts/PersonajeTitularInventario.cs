@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class PersonajeTitularInventario : TitularInventario
 {
   public static UnityAction cambioInventarioPersonaje;
+  public static UnityAction<SistemaInventario, int> visualizarInventarioPersonajeSolicitado;
 
   private void Start() {
     AdministradorGuardarJuego.dato.inventarioPersonje = new GuardarDatosCaja(sistemaInventario);
@@ -23,7 +24,7 @@ public class PersonajeTitularInventario : TitularInventario
 
   private void Update() {
     if(Keyboard.current.bKey.wasPressedThisFrame){
-      visualizarInventarioDinamicoSolicitado?.Invoke(sistemaInventario, compensar);
+      visualizarInventarioPersonajeSolicitado?.Invoke(sistemaInventario, compensar);
     }
   }
 

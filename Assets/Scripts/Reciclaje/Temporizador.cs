@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,10 @@ public class Temporizador : MonoBehaviour
 {
     [SerializeField] public Text textoTiempo; // Texto UI para mostrar el tiempo
     [SerializeField] private Slider slider;
-    public float tiempoLimite = 120f; // Tiempo límite en segundos (2 minutos)
+    public float tiempoLimite; // Tiempo límite en segundos (2 minutos)
     private float tiempoRestante;
     private bool contando;
+    private int nivelActual;
 
     void Start()
     {
@@ -20,7 +22,8 @@ public class Temporizador : MonoBehaviour
     void Update()
     {
         if (contando)
-        {
+        {       
+            Debug.Log("pruebaTiempo: " + tiempoRestante);
             tiempoRestante -= Time.deltaTime;
             if(tiempoRestante >= 0) 
             {
@@ -28,7 +31,6 @@ public class Temporizador : MonoBehaviour
                 
             }
             MostrarTiempo(tiempoRestante);
-            // slider.maxValue = tiempoRestante;
 
             if (tiempoRestante <= 0)
             {
@@ -38,9 +40,22 @@ public class Temporizador : MonoBehaviour
             }
         }
     }
-
+    
+    public void TemporizadoPorNivel(){
+        nivelActual = AdministradorGuardarJuego.dato.nivelActual;
+        if(nivelActual == 1)
+        {
+            tiempoLimite = 120f;
+        }
+        else
+        {
+            tiempoLimite = 880f;
+        }
+            tiempoRestante = tiempoLimite;
+    }
     public void IniciarTemporizador()
     {
+        TemporizadoPorNivel(); 
         tiempoRestante = tiempoLimite;
         contando = true;
     }
@@ -55,7 +70,6 @@ public class Temporizador : MonoBehaviour
         tiempoRestante = tiempoLimite;
         contando = false;
         MostrarTiempo(tiempoRestante);
-        // slider.maxValue = tiempoRestante;
     }
 
     void MostrarTiempo(float tiempo)

@@ -167,7 +167,7 @@ public class VerificadorDeBasura : MonoBehaviour
 
     public void ActualizarNivel(int nuevoNivel)
     {
-        totalElementosNivel = (nuevoNivel == 2) ? 20 : 8; // Ajusta el número de elementos para el nivel
+        totalElementosNivel = (nuevoNivel == 2) ? 32 : 8; // Ajusta el número de elementos para el nivel
         resultados.Clear(); // Asegura que los resultados se reinicien al actualizar el nivel
         Debug.Log($"Estoy en nivel {nuevoNivel} de ActualizarNivel. Elementos a recolectar: {totalElementosNivel} resultados: {resultados.Values}");
     }
