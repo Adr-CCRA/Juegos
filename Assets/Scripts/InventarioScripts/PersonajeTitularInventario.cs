@@ -24,7 +24,7 @@ public class PersonajeTitularInventario : TitularInventario
 
   private void Update() {
     if(Keyboard.current.bKey.wasPressedThisFrame){
-      visualizarInventarioPersonajeSolicitado?.Invoke(sistemaInventario, compensar);
+      AbrirMochila();
     }
   }
 
@@ -33,5 +33,8 @@ public class PersonajeTitularInventario : TitularInventario
       return true;
     }
     return false;
+  }
+  public void AbrirMochila(){
+    visualizarInventarioPersonajeSolicitado?.Invoke(sistemaInventario, compensar);
   }
 }
