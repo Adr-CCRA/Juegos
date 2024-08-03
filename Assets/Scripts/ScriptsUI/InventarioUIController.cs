@@ -51,4 +51,9 @@ public class InventarioUIController : MonoBehaviour
   {
     mochilaPersonajePanel.gameObject.SetActive(false);
   }
+
+  public void CerrarInventario()
+  {
+    inventarioPanel.gameObject.SetActive(false);
+  }
 }
