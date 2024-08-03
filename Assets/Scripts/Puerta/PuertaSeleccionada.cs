@@ -1,14 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PuertaSeleccionada : MonoBehaviour
 {
   public float distancia = 3f;
+  public UIBotonPuerta uiBotonPuerta; // Referencia al script UIBotonPuerta
 
   void Update()
+  {
+    if (Keyboard.current.rKey.wasPressedThisFrame)
+    {
+      Debug.Log("Tecla R presionada");
+      InteractuarPuerta();
+    }
+  }
+
+  public void InteractuarPuerta()
   {
     RaycastHit hit;
 
@@ -16,20 +23,32 @@ public class PuertaSeleccionada : MonoBehaviour
     {
       if (hit.collider.tag == "Puerta")
       {
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+        PuertaController puerta = hit.collider.GetComponent<PuertaController>();
+        if (puerta != null)
         {
-          Debug.Log("tecla R presionado");
-          PuertaController puerta = hit.collider.GetComponent<PuertaController>();
-          if (puerta != null)
+          Debug.Log("PuertaController encontrado");
+          puerta.CambioEstadoPuerta();
+          if (uiBotonPuerta != null)
           {
-            Debug.Log("PuertaController found");
-            puerta.CambioEstadoPuerta();
-          }
-          else
-          {
-            Debug.Log("No PuertaController component found");
+            uiBotonPuerta.ActualizarEstadoPuerta(puerta.puertaAbierta);
           }
         }
+        else
+        {
+          Debug.Log("No se encontró el componente PuertaController");
+        }
+      }
+    }
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    if (other.CompareTag("Puerta"))
+    {
+      PuertaController puerta = other.GetComponent<PuertaController>();
+      if (puerta != null && uiBotonPuerta != null)
+      {
+        uiBotonPuerta.ActualizarEstadoPuerta(puerta.puertaAbierta);
       }
     }
   }

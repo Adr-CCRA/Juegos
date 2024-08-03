@@ -1518,6 +1518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4353453755f74b49a98cc28e3b20159, type: 3}
+--- !u!1 &104147692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4336622075087383642, guid: ea52c078071656e46827e33281418da0, type: 3}
+  m_PrefabInstance: {fileID: 571643045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &113807018 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: c3fc09ce47eafd448a92665ef920c71b, type: 3}
@@ -2651,7 +2656,7 @@ RectTransform:
   m_Children:
   - {fileID: 329771837}
   m_Father: {fileID: 679940118}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2796,7 +2801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &243440907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2930,7 +2935,7 @@ RectTransform:
   m_Children:
   - {fileID: 627339319}
   m_Father: {fileID: 679940118}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -4329,6 +4334,21 @@ MonoBehaviour:
   abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 0
+  OnPuertaEstadoCambiado:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1070898115}
+        m_TargetAssemblyTypeName: UIBotonPuerta, Assembly-CSharp
+        m_MethodName: ActualizarEstadoPuerta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!64 &347829375
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5779,6 +5799,21 @@ MonoBehaviour:
   abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 1
+  OnPuertaEstadoCambiado:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1070898115}
+        m_TargetAssemblyTypeName: UIBotonPuerta, Assembly-CSharp
+        m_MethodName: ActualizarEstadoPuerta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!64 &520576898
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6267,6 +6302,156 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560291885}
   m_CullTransparentMesh: 1
+--- !u!1001 &571643045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 679940118}
+    m_Modifications:
+    - target: {fileID: 1886514837735774065, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 06ad1273608b69048a96bddd94805825, type: 3}
+    - target: {fileID: 2838824732508227063, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838824732508227063, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922802033682152996, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Name
+      value: BotonPuerta
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264245375821993276, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 633dc3b112d459946878eae2d7446654, type: 3}
+    - target: {fileID: 3264245375821993276, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.77070713
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264245375821993276, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264245375821993276, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885797648473706915, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885797648473706915, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_fontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336622075087383642, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Name
+      value: Cerrar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982953404569939908, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982953404569939908, guid: ea52c078071656e46827e33281418da0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 85
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea52c078071656e46827e33281418da0, type: 3}
+--- !u!224 &571643046 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5682405634658103208, guid: ea52c078071656e46827e33281418da0, type: 3}
+  m_PrefabInstance: {fileID: 571643045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &574776287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7211,6 +7396,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 571643046}
   - {fileID: 243440911}
   - {fileID: 243079379}
   m_Father: {fileID: 782628376}
@@ -10658,6 +10844,21 @@ MonoBehaviour:
   abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 1
+  OnPuertaEstadoCambiado:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1070898115}
+        m_TargetAssemblyTypeName: UIBotonPuerta, Assembly-CSharp
+        m_MethodName: ActualizarEstadoPuerta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!64 &1008277474
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11448,6 +11649,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061900506}
   m_CullTransparentMesh: 1
+--- !u!1 &1070898114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2922802033682152996, guid: ea52c078071656e46827e33281418da0, type: 3}
+  m_PrefabInstance: {fileID: 571643045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1070898115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070898114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88529f6391f24d4c9750e6d3516da56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botonPuerta: {fileID: 1070898118}
+  imagenPuertaCerrada: {fileID: 104147692}
+  imagenPuertaAbierta: {fileID: 2083949581}
+  puertaSeleccionada: {fileID: 1645548992}
+--- !u!114 &1070898118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4370385417232972559, guid: ea52c078071656e46827e33281418da0, type: 3}
+  m_PrefabInstance: {fileID: 571643045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070898114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1073057457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12602,6 +12835,21 @@ MonoBehaviour:
   abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 1
+  OnPuertaEstadoCambiado:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1070898115}
+        m_TargetAssemblyTypeName: UIBotonPuerta, Assembly-CSharp
+        m_MethodName: ActualizarEstadoPuerta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!64 &1155639876
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18159,6 +18407,21 @@ MonoBehaviour:
   abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 0
+  OnPuertaEstadoCambiado:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1070898115}
+        m_TargetAssemblyTypeName: UIBotonPuerta, Assembly-CSharp
+        m_MethodName: ActualizarEstadoPuerta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &1940539703
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19429,6 +19692,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2c1ca51f87b03e546ad21b92d08380d9, type: 3}
   m_PrefabInstance: {fileID: 817884809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2083949581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2973514079690369173, guid: ea52c078071656e46827e33281418da0, type: 3}
+  m_PrefabInstance: {fileID: 571643045}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2084876177
 GameObject:

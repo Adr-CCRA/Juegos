@@ -23,7 +23,7 @@ public class Temporizador : MonoBehaviour
     {
         if (contando)
         {       
-            Debug.Log("pruebaTiempo: " + tiempoRestante);
+            // Debug.Log("pruebaTiempo: " + tiempoRestante);
             tiempoRestante -= Time.deltaTime;
             if(tiempoRestante >= 0) 
             {

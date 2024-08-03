@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuertaController : MonoBehaviour
 {
   public bool puertaAbierta = false;
-  public float anguloApertura = -95f; // El ángulo que queremos que la puerta gire
+  public UnityEvent<bool> OnPuertaEstadoCambiado = new UnityEvent<bool>();
+  public float anguloApertura = -95f;
   public float velocidadRotacionPuerta = 3.0f;
 
   private float yInicial;
@@ -21,6 +21,7 @@ public class PuertaController : MonoBehaviour
   {
     if (!puedeInteractuar) return; // Si no se puede interactuar, no hacer nada
     puertaAbierta = !puertaAbierta;
+    OnPuertaEstadoCambiado?.Invoke(puertaAbierta);
   }
 
   void Start()
