@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class UIBotonCajas : MonoBehaviour
     public Interactor interactor;
     public InventarioUIController inventarioUIController; // Referencia al controlador de inventario
     private bool cajaEstaAbierta = false;
+    public List<TapaBasureroController> tapaBasureros;
 
     private void Start()
     {
@@ -32,6 +34,10 @@ public class UIBotonCajas : MonoBehaviour
             if (inventarioUIController != null)
             {
                 inventarioUIController.CerrarInventario();
+                foreach (var tapa in tapaBasureros)
+                {
+                    tapa.CerrarTapa();
+                }
                 ActualizarEstadoCaja(false);
             }
             else
@@ -44,6 +50,10 @@ public class UIBotonCajas : MonoBehaviour
             if (interactor != null)
             {
                 interactor.InteractuarConCaja();
+                /*foreach (var tapa in tapaBasureros)
+                {
+                    tapa.AbrirTapa();
+                }*/
                 ActualizarEstadoCaja(true);
             }
             else

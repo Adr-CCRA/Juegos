@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.InputSystem;
 
 public class TapaBasureroController : MonoBehaviour
@@ -31,9 +30,10 @@ public class TapaBasureroController : MonoBehaviour
         float xDestino = tapaAbierta ? xInicial + anguloApertura : xInicial;
         Quaternion rotacionDestino = Quaternion.Euler(xDestino, yInicial, zInicial);
         transform.localRotation = Quaternion.Slerp(transform.localRotation, rotacionDestino, velocidadRotacionTapa * Time.deltaTime);
-        
-        if(Keyboard.current.spaceKey.wasPressedThisFrame){
-          CerrarTapa();
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            CerrarTapa();
         }
     }
 

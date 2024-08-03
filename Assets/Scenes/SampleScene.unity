@@ -4719,6 +4719,13 @@ MonoBehaviour:
   imagenCajaAbierta: {fileID: 463700276}
   interactor: {fileID: 1645548994}
   inventarioUIController: {fileID: 773280055}
+  tapaBasureros:
+  - {fileID: 1183380473}
+  - {fileID: 2063895590}
+  - {fileID: 1745956477}
+  - {fileID: 60123103}
+  - {fileID: 367452235}
+  - {fileID: 128084485}
 --- !u!1001 &453188405
 PrefabInstance:
   m_ObjectHideFlags: 0
