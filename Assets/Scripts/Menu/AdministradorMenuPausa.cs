@@ -11,6 +11,7 @@ public class AdministradorMenuPausa : MonoBehaviour
   public bool pausa = false;
   public GameObject MenuSalir;
   public GameObject MenuPartida;
+  public GameObject Configuraciones;
   public Button botonPausa;
   public List<GameObject> imagenesDeFondo;
   private int indiceImagenActual = 0;
@@ -19,6 +20,7 @@ public class AdministradorMenuPausa : MonoBehaviour
     ObjetoMenuPausa.SetActive(false);
     MenuSalir.SetActive(false);
     MenuPartida.SetActive(false);
+    Configuraciones.SetActive(false);
     botonPausa.onClick.AddListener(Pausa);
     DesactivarTodasLasImagenes();
   }
@@ -47,6 +49,7 @@ public class AdministradorMenuPausa : MonoBehaviour
     Time.timeScale = 1;
     MenuSalir.SetActive(false);
     MenuPartida.SetActive(false);
+    Configuraciones.SetActive(false);
     DesactivarTodasLasImagenes();
   }
 

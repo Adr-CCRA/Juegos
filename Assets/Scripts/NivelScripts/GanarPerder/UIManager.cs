@@ -60,6 +60,8 @@ public class UIManager : MonoBehaviour
         botonContinuar.gameObject.SetActive(true);
         jugador.GetComponent<PersonajeController>().enabled = false; // Desactivar el controlador del jugador
         temporizador.DetenerTemporizador(); // Detener el temporizador
+        AudioController.Instancia.musicaSource.Pause();
+        AudioController.Instancia.PlayEfecto("Ganaste");
     }
 
     public void MostrarPantallaDerrota(int puntaje, float tiempo)
@@ -73,6 +75,8 @@ public class UIManager : MonoBehaviour
         botonReintentar.gameObject.SetActive(true);
         jugador.GetComponent<PersonajeController>().enabled = false; // Desactivar el controlador del jugador
         temporizador.DetenerTemporizador(); // Detener el temporizador
+        AudioController.Instancia.musicaSource.Stop();
+        AudioController.Instancia.PlayEfecto("Perdiste");
     }
 
     public void ReiniciarJuego()
@@ -94,5 +98,6 @@ public class UIManager : MonoBehaviour
         controladorNivel.AvanzarNivel(); // Avanzar el nivel
         temporizador.IniciarTemporizador(); // Iniciar el temporizador
         jugador.GetComponent<PersonajeController>().enabled = true; // Reactivar el controlador del jugador
+        AudioController.Instancia.musicaSource.Play();
     }
 }
