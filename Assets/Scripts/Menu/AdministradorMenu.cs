@@ -14,7 +14,10 @@ public class AdministradorMenu : MonoBehaviour
   {
     SceneManager.LoadScene(nombreNivel);
   }
-
+  public void Instrucciones(string nombreNivel)
+  {
+    SceneManager.LoadScene(nombreNivel);
+  }
   public void Salir()
   {
     Application.Quit();

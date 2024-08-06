@@ -820,13 +820,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musica:
-  - nombre: MusicaFondo
+  - nombre: MusicaJuego
     clip: {fileID: 8300000, guid: b0f6cec0d79d9de47bce8d698559690f, type: 3}
   efectos:
   - nombre: Ganaste
     clip: {fileID: 8300000, guid: f52b0475bfc81a5439fc45df25388ef9, type: 3}
   - nombre: Perdiste
     clip: {fileID: 8300000, guid: db34c454e5b97cd4d98b8e62cf5f6763, type: 3}
+  - nombre: AbrirPuerta
+    clip: {fileID: 8300000, guid: f6cb8c28d84521d4a8032ff7e9ffec95, type: 3}
+  - nombre: CerrarPuerta
+    clip: {fileID: 8300000, guid: 070b3e385b144b84394d5d623fcbf84e, type: 3}
   musicaSource: {fileID: 1371604384}
   efxSource: {fileID: 1990431932}
 --- !u!4 &44492586
@@ -4578,8 +4582,6 @@ MonoBehaviour:
         m_CallState: 2
   anguloApertura: -95
   velocidadRotacionPuerta: 3
-  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
-  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 0
 --- !u!64 &347829375
 MeshCollider:
@@ -6195,8 +6197,6 @@ MonoBehaviour:
         m_CallState: 2
   anguloApertura: -95
   velocidadRotacionPuerta: 3
-  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
-  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 1
 --- !u!64 &520576898
 MeshCollider:
@@ -11497,8 +11497,6 @@ MonoBehaviour:
         m_CallState: 2
   anguloApertura: -95
   velocidadRotacionPuerta: 3
-  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
-  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 1
 --- !u!64 &1008277474
 MeshCollider:
@@ -13737,8 +13735,6 @@ MonoBehaviour:
         m_CallState: 2
   anguloApertura: -95
   velocidadRotacionPuerta: 3
-  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
-  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 1
 --- !u!64 &1155639876
 MeshCollider:
@@ -20534,8 +20530,6 @@ MonoBehaviour:
         m_CallState: 2
   anguloApertura: -95
   velocidadRotacionPuerta: 3
-  abrirPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
-  cerrarPuerta: {fileID: 8300000, guid: 0cdb719766b7fb24ab71f17576cf548a, type: 3}
   puedeInteractuar: 0
 --- !u!54 &1940539703
 Rigidbody:

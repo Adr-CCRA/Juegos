@@ -22,7 +22,7 @@ public class AudioController : MonoBehaviour
     }
     
     private void Start() {
-        PlayMusica("MusicaFondo");
+        PlayMusica("MusicaJuego");
     }
     public void PlayMusica (string nombre)
     {

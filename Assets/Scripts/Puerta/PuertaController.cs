@@ -12,8 +12,8 @@ public class PuertaController : MonoBehaviour
   private float xInicial;
   private float zInicial;
 
-  public AudioClip abrirPuerta;
-  public AudioClip cerrarPuerta;
+  // public AudioClip abrirPuerta;
+  // public AudioClip cerrarPuerta;
 
   public bool puedeInteractuar = false; // Nueva variable para habilitar/deshabilitar la interacción
 
@@ -48,7 +48,8 @@ public class PuertaController : MonoBehaviour
   {
     if (other.tag == "TriggerPuerta")
     {
-      AudioSource.PlayClipAtPoint(cerrarPuerta, transform.position, 1);
+      // AudioSource.PlayClipAtPoint(cerrarPuerta, transform.position, 1);
+      AudioController.Instancia.PlayEfecto("CerrarPuerta");
     }
   }
 
@@ -56,7 +57,8 @@ public class PuertaController : MonoBehaviour
   {
     if (other.tag == "TriggerPuerta")
     {
-      AudioSource.PlayClipAtPoint(abrirPuerta, transform.position, 1);
+      // AudioSource.PlayClipAtPoint(abrirPuerta, transform.position, 1);
+      AudioController.Instancia.PlayEfecto("AbrirPuerta");
     }
   }
 }

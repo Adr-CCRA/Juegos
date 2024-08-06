@@ -41,13 +41,13 @@ public class TapaBasureroController : MonoBehaviour
     {
         if (!puedeInteractuar || tapaAbierta) return;
         tapaAbierta = true;
-        AudioSource.PlayClipAtPoint(abrirTapa, transform.position);
+        AudioController.Instancia.PlayEfecto("AbrirPuerta");
     }
 
     public void CerrarTapa()
     {
         if (!puedeInteractuar || !tapaAbierta) return;
         tapaAbierta = false;
-        AudioSource.PlayClipAtPoint(cerrarTapa, transform.position);
+        AudioController.Instancia.PlayEfecto("AbrirPuerta");
     }
 }
