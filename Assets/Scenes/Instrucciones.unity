@@ -223,6 +223,8 @@ MonoBehaviour:
   botonSiguiente: {fileID: 1479674842}
   botonIrAlJuego: {fileID: 1248461092}
   botonVolver: {fileID: 1774977686}
+  Juego: SampleScene
+  MenuPrincipal: MenuPrincipal
 --- !u!1 &169767075
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +267,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0f6cec0d79d9de47bce8d698559690f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 98c03a306536c77489e9a664978bcf92, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.647
   m_Pitch: 1
@@ -1702,7 +1704,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 611874759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1201202557}
+        m_TargetAssemblyTypeName: InstruccionesController, Assembly-CSharp
+        m_MethodName: Volver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &611874759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2629,6 +2643,8 @@ MonoBehaviour:
   botonSiguiente: {fileID: 2050590471}
   botonIrAlJuego: {fileID: 1995267993}
   botonVolver: {fileID: 611874758}
+  Juego: SampleScene
+  MenuPrincipal: MenuPrincipal
 --- !u!1 &1248461088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,7 +2766,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1248461090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 50687220}
+        m_TargetAssemblyTypeName: InstruccionesController, Assembly-CSharp
+        m_MethodName: IrAlJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1301753734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3787,7 +3815,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1774977687}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 50687220}
+        m_TargetAssemblyTypeName: InstruccionesController, Assembly-CSharp
+        m_MethodName: Volver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1774977687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4155,7 +4195,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1995267991}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1201202557}
+        m_TargetAssemblyTypeName: InstruccionesController, Assembly-CSharp
+        m_MethodName: IrAlJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2050590467
 GameObject:
   m_ObjectHideFlags: 0

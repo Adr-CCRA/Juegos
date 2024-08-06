@@ -1,5 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InstruccionesController : MonoBehaviour
@@ -9,13 +12,21 @@ public class InstruccionesController : MonoBehaviour
     public Button botonSiguiente;
     public Button botonIrAlJuego;
     public Button botonVolver;
-    
+    public string Juego;
+    public string MenuPrincipal;
+
     private int paginaActual = 0;
 
     void Start()
     {
+        // Ocultar el botón Volver si es la primera vez
+        if (PlayerPrefs.GetInt("PrimeraVez", 1) == 1)
+        {
+            botonVolver.gameObject.SetActive(false);
+        }
+
         ActualizarPagina();
-        
+
         botonAtras.onClick.AddListener(Atras);
         botonSiguiente.onClick.AddListener(Siguiente);
         botonIrAlJuego.onClick.AddListener(IrAlJuego);
@@ -53,13 +64,15 @@ public class InstruccionesController : MonoBehaviour
         }
     }
 
-    void IrAlJuego()
+    public void IrAlJuego()
     {
-        // Implementar lógica para ir al juego
+        // Marcar como no la primera vez para futuras visitas
+        PlayerPrefs.SetInt("PrimeraVez", 0);
+        SceneManager.LoadScene(Juego);
     }
 
-    void Volver()
+    public void Volver()
     {
-        // Implementar lógica para volver al menú principal u otra acción
+        SceneManager.LoadScene(MenuPrincipal);
     }
 }

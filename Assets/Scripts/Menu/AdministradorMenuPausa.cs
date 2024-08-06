@@ -56,9 +56,16 @@ public class AdministradorMenuPausa : MonoBehaviour
   public void IrMenu(string MenuPrincipal)
   {
     SceneManager.LoadScene(MenuPrincipal);
+    AudioController.Instancia.musicaSource.Stop();
     Reanudar();
   }
 
+  public void IrInstrucciones(string Instrucciones)
+  {
+    SceneManager.LoadScene(Instrucciones);
+    AudioController.Instancia.musicaSource.Stop();
+    Reanudar();
+  }
   public void SalirJuego()
   {
     Application.Quit();

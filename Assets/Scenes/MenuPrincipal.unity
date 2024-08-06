@@ -2264,6 +2264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreNivel: SampleScene
+  nombreInstrucciones: Instrucciones
 --- !u!1 &2074536496
 GameObject:
   m_ObjectHideFlags: 0
