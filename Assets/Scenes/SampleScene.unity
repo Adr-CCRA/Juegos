@@ -7292,7 +7292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7390611048351501309, guid: 2d7ac8c0add8f0c4ca211b7c93ca6eb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.059
+      value: -4.84
       objectReference: {fileID: 0}
     - target: {fileID: 7390611048351501309, guid: 2d7ac8c0add8f0c4ca211b7c93ca6eb8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7572,9 +7572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b390b58dbff23a94db7642fda6c2cb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformarObjeto: {fileID: 0}
+  transformarObjeto: {fileID: 1911163183}
   camaraPivot: {fileID: 605238485}
-  transformarCamara: {fileID: 0}
+  transformarCamara: {fileID: 963194228}
   capasColision:
     serializedVersion: 2
     m_Bits: 64
@@ -13067,7 +13067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8617835151230357669, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8617835151230357669, guid: d97db6bfb25bd894084852ef4303aa56, type: 3}
       propertyPath: m_TagString

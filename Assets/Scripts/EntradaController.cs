@@ -1,4 +1,3 @@
-// EntradaController.cs
 using UnityEngine;
 using UnityEngine.InputSystem;
 

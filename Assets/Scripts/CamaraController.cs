@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class CamaraController : MonoBehaviour
@@ -35,24 +33,32 @@ public class CamaraController : MonoBehaviour
     transformarCamara = Camera.main.transform;
     posicionDefecto = transformarCamara.localPosition.z;
   }
+
   public void TodoMovimientoCamara()
   {
     SeguirObjeto();
     RotacionCamara();
+  }
+
+  private void LateUpdate()
+  {
+    TodoMovimientoCamara();
     ManejoColisionCamara();
   }
+
   private void SeguirObjeto()
   {
-    Vector3 posicionObjeto = Vector3.SmoothDamp
-      (transform.position, transformarObjeto.position, ref velocidadSegumientoCamara, velocidadCamara);
+    Vector3 posicionObjeto = Vector3.SmoothDamp(
+        transform.position, transformarObjeto.position, ref velocidadSegumientoCamara, velocidadCamara);
     transform.position = posicionObjeto;
   }
+
   private void RotacionCamara()
   {
     Vector3 rotacion;
     Quaternion objetoRotacion;
-    mirarAngulo = mirarAngulo + (entradaController.entradaCamaraX * velocidadMirarCamara);
-    pivotAngulo = pivotAngulo + (entradaController.entradaCamaraY * velocidadPivotCamara);
+    mirarAngulo += entradaController.entradaCamaraX * velocidadMirarCamara;
+    pivotAngulo += entradaController.entradaCamaraY * velocidadPivotCamara;
     pivotAngulo = Mathf.Clamp(pivotAngulo, minPivotAngulo, maxPivotAngulo);
 
     rotacion = Vector3.zero;
@@ -65,24 +71,33 @@ public class CamaraController : MonoBehaviour
     objetoRotacion = Quaternion.Euler(rotacion);
     camaraPivot.localRotation = objetoRotacion;
   }
+
   private void ManejoColisionCamara()
   {
     float posicionObjeto = posicionDefecto;
     RaycastHit golpe;
     Vector3 direccion = transformarCamara.position - camaraPivot.position;
     direccion.Normalize();
-    if (Physics.SphereCast(
-            camaraPivot.transform.position, radioColisionCamara, direccion, out golpe, Mathf.Abs(posicionObjeto), capasColision))
+
+    // Usando Physics.Raycast para la detección de colisiones
+    if (Physics.Raycast(
+            camaraPivot.position, direccion, out golpe, Mathf.Abs(posicionObjeto), capasColision))
     {
       float distancia = Vector3.Distance(camaraPivot.position, golpe.point);
-      posicionObjeto =- distancia - camaraColisionDesactivar;
+      posicionObjeto = -distancia + camaraColisionDesactivar;
     }
 
     if (Mathf.Abs(posicionObjeto) < minCamaraColisionDesactivar)
     {
-      posicionObjeto = posicionObjeto - minCamaraColisionDesactivar;
+      posicionObjeto = -minCamaraColisionDesactivar;
     }
+
     camaraPosicionVector.z = Mathf.Lerp(transformarCamara.localPosition.z, posicionObjeto, 0.2f);
     transformarCamara.localPosition = camaraPosicionVector;
+
+    // Debug para visualizar el raycast
+    /* Debug.DrawRay(camaraPivot.position, direccion * Mathf.Abs(posicionObjeto), Color.red);
+    Debug.Log("Posición de la cámara: " + transformarCamara.localPosition);
+    Debug.Log("Distancia de colisión calculada: " + posicionObjeto); */
   }
 }
