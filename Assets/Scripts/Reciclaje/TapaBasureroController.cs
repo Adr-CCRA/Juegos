@@ -31,7 +31,7 @@ public class TapaBasureroController : MonoBehaviour
         Quaternion rotacionDestino = Quaternion.Euler(xDestino, yInicial, zInicial);
         transform.localRotation = Quaternion.Slerp(transform.localRotation, rotacionDestino, velocidadRotacionTapa * Time.deltaTime);
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.xKey.wasPressedThisFrame)
         {
             CerrarTapa();
         }

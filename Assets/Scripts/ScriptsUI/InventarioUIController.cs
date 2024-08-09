@@ -26,12 +26,12 @@ public class InventarioUIController : MonoBehaviour
   }
   public void Update()
   {
-    if (inventarioPanel.gameObject.activeInHierarchy && Keyboard.current.spaceKey.wasPressedThisFrame)
+    if (inventarioPanel.gameObject.activeInHierarchy && Keyboard.current.xKey.wasPressedThisFrame)
     {
       inventarioPanel.gameObject.SetActive(false);
     }
 
-    if (mochilaPersonajePanel.gameObject.activeInHierarchy && Keyboard.current.spaceKey.wasPressedThisFrame)
+    if (mochilaPersonajePanel.gameObject.activeInHierarchy && Keyboard.current.xKey.wasPressedThisFrame)
     {
       mochilaPersonajePanel.gameObject.SetActive(false);
     }

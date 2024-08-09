@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.Video;
 public class InstruccionesController : MonoBehaviour
 {
     public List<GameObject> paginasInstrucciones; // Lista de páginas de instrucciones
@@ -16,7 +16,8 @@ public class InstruccionesController : MonoBehaviour
     public string MenuPrincipal;
 
     private int paginaActual = 0;
-
+    public List<VideoPlayer> videoPlayers;
+    private int currentVideoIndex = 0;
     void Start()
     {
         // Ocultar el botón Volver si es la primera vez
@@ -26,6 +27,7 @@ public class InstruccionesController : MonoBehaviour
         }
 
         ActualizarPagina();
+        ActualizarVideo();
 
         botonAtras.onClick.AddListener(Atras);
         botonSiguiente.onClick.AddListener(Siguiente);
@@ -38,6 +40,17 @@ public class InstruccionesController : MonoBehaviour
         for (int i = 0; i < paginasInstrucciones.Count; i++)
         {
             paginasInstrucciones[i].SetActive(i == paginaActual);
+
+            // Si la página está activa, mostrar el video correspondiente.
+            if (i == paginaActual)
+            {
+                currentVideoIndex = i;  // Sincroniza el índice del video con la página actual
+                MostrarVideo();
+            }
+            else
+            {
+                OcultarVideo();
+            }
         }
 
         // Mostrar u ocultar botones según la página actual
@@ -46,12 +59,55 @@ public class InstruccionesController : MonoBehaviour
         botonIrAlJuego.gameObject.SetActive(paginaActual == paginasInstrucciones.Count - 1);
     }
 
+    void ActualizarVideo()
+    {
+        for (int i = 0; i < videoPlayers.Count; i++)
+        {
+            videoPlayers[i].gameObject.SetActive(i == currentVideoIndex);
+        }
+
+        // Mostrar u ocultar botones según la página actual
+        botonAtras.gameObject.SetActive(currentVideoIndex > 0);
+        botonSiguiente.gameObject.SetActive(currentVideoIndex < videoPlayers.Count - 1);
+        botonIrAlJuego.gameObject.SetActive(currentVideoIndex == videoPlayers.Count - 1);
+    }
+    public void OcultarVideo()
+    {
+        if (videoPlayers[currentVideoIndex].isPlaying)
+        {
+            videoPlayers[currentVideoIndex].Stop();
+        }
+        // videoPlayers[currentVideoIndex].clip = null; // Libera el video de la memoria
+        videoPlayers[currentVideoIndex].gameObject.SetActive(false);
+    }
+
+    public void MostrarVideo()
+    {
+        // string videoPath = Application.dataPath + "/Videos/" + videoPlayers[currentVideoIndex].name + ".mp4";
+        // videoPlayers[currentVideoIndex].url = videoPath;
+        videoPlayers[currentVideoIndex].gameObject.SetActive(true);
+        videoPlayers[currentVideoIndex].Play();
+        /* string videoPath = Application.dataPath + "/Videos/" + videoPlayers[currentVideoIndex].name + ".mp4";
+        Debug.Log("El archivo de video existe: " + videoPath);
+        if (System.IO.File.Exists(videoPath))
+        {
+            videoPlayers[currentVideoIndex].url = videoPath;
+            videoPlayers[currentVideoIndex].gameObject.SetActive(true);
+            videoPlayers[currentVideoIndex].Play();
+        }
+        else
+        {
+            Debug.Log("El archivo de video no existe: " + videoPath);
+        } */
+    }
+
     void Atras()
     {
         if (paginaActual > 0)
         {
             paginaActual--;
             ActualizarPagina();
+            ActualizarVideo();
         }
     }
 
@@ -61,6 +117,7 @@ public class InstruccionesController : MonoBehaviour
         {
             paginaActual++;
             ActualizarPagina();
+            ActualizarVideo();
         }
     }
 
