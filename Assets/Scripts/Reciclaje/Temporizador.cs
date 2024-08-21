@@ -49,7 +49,7 @@ public class Temporizador : MonoBehaviour
         }
         else
         {
-            tiempoLimite = 880f;
+            tiempoLimite = 600f;
         }
             tiempoRestante = tiempoLimite;
     }

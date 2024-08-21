@@ -16,5 +16,5 @@ MonoBehaviour:
   IDTipo: 1
   mostrarNombre: Pipoca
   Descripcion: Este pertenece al contenedor de plasitcos/envases
-  icono: {fileID: 1743727530, guid: 4cb2a7163901f2846b863e8461583041, type: 3}
+  icono: {fileID: -1332598889, guid: b608ec8e25a81ad4f87e3d52cc4d0681, type: 3}
   maxCapacidadPila: 10

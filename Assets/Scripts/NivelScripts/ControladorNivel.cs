@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ControladorNivel : MonoBehaviour
 {
     public List<VerificadorDeBasura> verificadoresDeBasura; // Cambiar a una lista
@@ -42,14 +42,21 @@ public class ControladorNivel : MonoBehaviour
             uiManager.MostrarPantallaVictoria(puntaje, tiempo);
             if (nivelActual == 1)
             {
-                Debug.Log("Nivel 1 completado");
+                // Debug.Log("Nivel 1 completado");
                 puertaCuarto.puedeInteractuar = true;
                 puertaCuarto.puertaAbierta = true;
             }
             else if (nivelActual == 2)
             {
-                Debug.Log("Nivel 2 completado");
+                // Debug.Log("Nivel 2 completado");
                 puertaPrincipal.puedeInteractuar = true;
+                uiManager.botonReintentar.gameObject.SetActive(true);
+                uiManager.botonReintentar.GetComponentInChildren<TMP_Text>().text = "Volver a jugar";
+                uiManager.botonContinuar.gameObject.SetActive(false);
+            } 
+            else if (nivelActual == 3)
+            {
+                Debug.Log("estoy en nivel 3");
             }
 
             GuardarResultadosDeTodasLasInstancias();
